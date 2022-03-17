@@ -1,0 +1,99 @@
+//@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+//@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow&display=swap');
+//
+//.bill_body{
+//  position: relative;
+//  margin: auto;
+//  margin-top: 15px;
+//  font-family: 'Roboto Condensed';
+//  height: auto;
+//  font-size: 20px;
+//  background-color: white;
+//  padding-bottom: 40px;
+//  text-align: center;
+//}
+//.button1{
+//  color: #034c8c !important;
+//  font-family: 'Roboto Condensed';
+//  text-transform: uppercase;
+//  text-decoration: none;
+//  background: #ffffff;
+//  padding: 10px;
+//  border: 2px solid #494949 !important;
+//  display: inline-block;
+//  transition: all 0.4s ease 0s;
+//}
+//.button1:hover {
+//  color: #ffffff !important;
+//  background: #034c8c;
+//  border-color: #034c8c !important;
+//  transition: all 0.4s ease 0s;
+//}
+//
+//footer{
+//  position: fixed;
+//  background-color: #034c8c;
+//  width: 100%;
+//  height: 7%;
+//  left: 0;
+//  bottom: 0;
+//  z-index: 10;
+//}
+//
+//.footer_title{
+//  padding: 5px;
+//  position: center;
+//  height: auto;
+//  font-family:'Roboto Condensed';
+//  color: white;
+//  text-align: center;
+//}
+//
+//.img_link{
+//  padding: 5px;
+//}
+footer {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  display: block;
+}
+.footer-text1{
+  /* Все права защищены */
+
+  position: absolute;
+  width: 200px;
+  height: 21px;
+  left: 320px;
+  top: 929px;
+
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 130%;
+  /* identical to box height, or 21px */
+  color: #666666;
+}
+
+.footer-text2{
+  /* УПКК 2021 */
+
+  position: absolute;
+  width: 264px;
+  height: 21px;
+  left: 1420px;
+  top: 929px;
+
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 130%;
+  /* identical to box height, or 21px */
+
+  color: #666666;
+}

@@ -1,0 +1,45 @@
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Главная/Авторизация</title>
+</head>
+<div class="header_text">
+    <p>Цифровое <br> портфолио</p>
+</div>
+<div class="login-content">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="avtorizacia">
+        <div class="form-group" [ngClass]="{'has-error': form.get('login').invalid && form.get('login').touched}">
+            <h1 class="title_h2">Авторизация</h1>
+            <div class="alert alert-{{message.type}}" *ngIf="message.text">
+                {{message.text}}</div>
+
+            <input type="text" class="login_pole" id="login_pole1" placeholder="Логин" formControlName="login">
+            <span class="form-login-span" *ngIf="form.get('login').invalid && form.get('login').touched">
+      <span *ngIf="form.get('login')['errors']['required']">Логин не может быть пустым </span>
+            <span *ngIf="form.get('login')['errors']['maxlength']">Логин должен быть меньше
+          {{form.get('login')['errors']['maxlength']['requiredLength']}} символов. Сейчас
+          {{form.get('login')['errors']['maxlength']['actualLength']}}
+      </span>
+            </span>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': form.get('password').invalid && form.get('password').touched}">
+            <input type="password" class="password_pole" id="password" placeholder="Пароль" formControlName="password">
+            <span class="form-password-span" *ngIf="form.get('password').invalid && form.get('password').touched">
+      <span class="form-span"*ngIf="form.get('password')['errors']['required']">Пароль не может быть пустым</span>
+            <span *ngIf="form.get('password')['errors']['maxlength']">Пароль должен быть меньше
+        {{form.get('password')['errors']['maxlength']['requiredLength']}} символов. Сейчас
+        {{form.get('password')['errors']['maxlength']['actualLength']}}
+      </span>
+            </span>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="sign-up-button" [disabled]="form.invalid">Войти!
+    </button>
+        </div>
+    </form>
+    <div class="img">
+        <img src="../../../assets/png-clipart-computer-icons-asterisk-scalable-graphics-font-asterisk-flower-asterisk.png" width="100%" height="100%" alt="Изображение страницы авторизации">
+    </div>
+</div>
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
