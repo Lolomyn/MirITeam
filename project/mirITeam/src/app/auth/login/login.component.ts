@@ -74,10 +74,11 @@ export class LoginComponent implements OnInit {
             this.message.text = '';
             window.localStorage.setItem('user', JSON.stringify(user));
             this.authService.login();
-            switch (user[0].type) {
-              case ('Администратор'): this.router.navigate(['/system', 'admin']); break;
-              case ('Студент'): this.router.navigate(['/system', 'prepod']); break;
-            }
+            this.router.navigate(['/system', 'profile']);
+            // switch (user[0].type) {
+            //   case ('Администратор'): this.router.navigate(['/system', 'admin']); break;
+            //   case ('Студент'): this.router.navigate(['/system', 'prepod']); break;
+            // }
           } else {
               alert('Введен неверный пароль!');
               this.showMessage
