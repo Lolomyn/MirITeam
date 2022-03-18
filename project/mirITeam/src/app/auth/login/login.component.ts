@@ -35,6 +35,10 @@ export class LoginComponent implements OnInit {
     this.message = new Message('danger', '');
   }
 
+  toMain() {
+    this.router.navigate(['/main']);
+  }
+
   private showMessage(message: Message) {
     this.message = message;
     window.setTimeout(() => {

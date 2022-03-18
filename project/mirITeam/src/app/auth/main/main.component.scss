@@ -3,15 +3,15 @@ html {
 }
 
 header {
-    padding: 2.25em 14.25em;
+    padding: 2.25rem 14.25rem;
     padding-bottom: 0;
     display: flex;
     // margin-bottom: 3.75em;
 }
 
 body {
-    padding: 2.25em 14.25em;
-    height: 655px;
+    padding: 2.25rem 14.25rem;
+    // height: 655px;
 }
 
 .logo, .text-logo2 {
@@ -53,8 +53,15 @@ body {
 }
 
 .login-button-text, .registration-button-text{
-    padding: 1em 1.5em 1.125em;
+    padding: 1rem 1.5rem 1.125rem;
     color: #0069B4;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.125em;
+    line-height: 130%;
+    /* or 23px */
 }
 
 .login-button:hover, .registration-button:hover {
@@ -67,7 +74,7 @@ body {
 }
 
 .login-button {
-    margin-right: 1.5em;
+    margin-right: 1.5rem;
 }
 
 .title {
@@ -81,14 +88,16 @@ body {
     text-align: center;
 
     color: #000000;
+
+    margin-bottom: 3rem;
 }
 
 
 footer {
     background-color: #0069B4;
-    height: 16em;
-    padding-top: 2.25em;
-    padding-bottom: 1.5em;
+    height: 16rem;
+    padding-top: 2.25rem;
+    padding-bottom: 1.5rem;
 
     // display: flex;
     // justify-content: center;
@@ -114,7 +123,7 @@ footer .full-logo {
     flex-direction: column;
     align-items: center;
 
-    padding-bottom: 1.5em;
+    padding-bottom: 1.5rem;
 }
 
 .some-text {
@@ -126,18 +135,18 @@ footer .full-logo {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 1.25em;
     line-height: 130%;
 
     color: #FFFFFF;
 }
 
 .some-text {
-    padding-bottom: 1.5em;
+    padding-bottom: 1.5rem;
 }
 
 .some-text .politics {
-    padding-right: 1.25em;
+    padding-right: 1.25rem;
 }
 
 .some-text .politics:hover, .some-text .help:hover {
@@ -149,11 +158,11 @@ footer .full-logo {
     display: flex;
     justify-content: center;
 
-    padding-bottom: 2.25em;
+    padding-bottom: 2.25rem;
 }
 
 .icons .vk {
-    padding-right: 1.25em;
+    padding-right: 1.25rem;
 }
 
 .icons .vk:hover, .icons .telegram:hover {
@@ -165,9 +174,100 @@ footer .full-logo {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 0.875em;
     line-height: 130%;
 
     text-align: center;
     color: #E7E7E7;
+}
+
+.first-line, .second-line, .third-line {
+    display: flex;
+    justify-content: center;
+}
+
+.first-line .long-card, .second-line .short-card {
+    margin-right: 1.5rem;
+}
+
+.first-line, .second-line {
+    margin-bottom: 1.5rem;
+}
+
+.long-card {
+    width: 75%; // 60.5rem
+    height: 28.938rem; // 28.938rem
+
+    background: #F5F7FA;
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+.short-card {
+    width: 25%; // 29.5rem;
+    height: 28.938rem; // 28.938rem
+
+    background: #F5F7FA;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.middle-card, .middle-card1 {
+    width: 50%; // 45rem
+    height: 28.938rem; // 28.938rem
+
+    background: #F5F7FA;
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+
+.middle-card1 {
+    margin-right: 1.5rem;
+}
+
+.short-card:hover, .long-card:hover, .middle-card:hover, .middle-card1:hover {
+    .card-img {
+        transform: scale(1.05);
+        transition: .2s;
+    }
+    .card-text {
+        text-decoration-line: underline;
+    }
+    cursor: pointer;
+}
+
+.card-img {
+    overflow: hidden;
+    // width: 60.5rem;
+    // height: 21.313rem;
+    border-radius: 12px 12px 0px 0px;
+    transform: scale(1.0);
+    transition: .2s;
+}
+
+.card-img img {
+    object-fit: cover;
+    width: 100%;
+    height: 21.313rem;
+}
+
+.card-text {
+    position: absolute;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.5em;
+    line-height: 130%;
+    padding-left: 1.5rem;
+    /* identical to box height, or 39px */
+
+    // text-decoration-line: underline;
+
+    color: #000000;
+
+    margin-top: 1.5rem;
 }
