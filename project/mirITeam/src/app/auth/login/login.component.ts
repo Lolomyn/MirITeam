@@ -1,13 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-// import {FormControl, FormGroup, Validators} from '@angular/forms';
-import { FormControl } from '@angular/forms';
-import { FormGroup } from '@angular/forms';
-import { Validators } from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UsersService} from '../../system/shared/services/users.service';
 import {Message} from '../../system/shared/models/message.model';
 import {AuthService} from '../../system/shared/auth.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import { User } from 'src/app/system/shared/models/user.model';
+import { delay } from 'rxjs';
 
 
 @Component({
@@ -29,10 +27,23 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      login: new FormControl(null, [Validators.required, Validators.maxLength (30)]),
-      password: new FormControl(null, [Validators.required, Validators.maxLength(20)])
+      phone_email: new FormControl(null, [Validators.required]),
+      password: new FormControl(null, [Validators.required])
     });
     this.message = new Message('danger', '');
+  }
+
+  show: boolean = false;
+  imageSrc = "../../../assets/eye-off.svg";
+  showPassword() {
+    if (this.show == false) {
+      this.show = true;
+      this.imageSrc = "../../../assets/eye.svg";
+    }
+    else {
+      this.show = false;
+      this.imageSrc = "../../../assets/eye-off.svg";
+    }
   }
 
   toMain() {
@@ -63,10 +74,28 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     const formData = this.form.value;
-    this.usersService.getUserByLogin(formData.login)
+    this.usersService.getUserByLogin(formData.phone_email)
       .subscribe((user: User) => {
         if (user[0] == undefined) {
-          alert('Такого пользователя не существует!');
+          console.log('Такого пользователя не существует!');
+
+          let phone_email = document.getElementsByClassName('phone_email')[0] as HTMLElement;
+          phone_email.classList.add('ng-invalid');
+
+          let password = document.getElementsByClassName('password')[0] as HTMLElement;
+          password.classList.add('ng-invalid');
+
+          let span = document.getElementsByClassName('invisible2')[0] as HTMLElement;
+          span.classList.remove('invisible2');
+          span.classList.add('form-button-span');
+
+          setTimeout(() => { 
+            span.classList.remove('form-button-span');
+            span.classList.add('invisible2');
+            phone_email.classList.remove('ng-invalid');
+            password.classList.remove('ng-invalid');
+          }, 3000)
+
           this.showMessage
           ({
             text: 'Такого пользователя не существует',
@@ -84,7 +113,23 @@ export class LoginComponent implements OnInit {
             //   case ('Студент'): this.router.navigate(['/system', 'prepod']); break;
             // }
           } else {
-              alert('Введен неверный пароль!');
+              console.log('Введен неверный пароль!');
+              let phone_email = document.getElementsByClassName('phone_email')[0] as HTMLElement;
+              phone_email.classList.add('ng-invalid');
+
+              let password = document.getElementsByClassName('password')[0] as HTMLElement;
+              password.classList.add('ng-invalid');
+
+              let span = document.getElementsByClassName('invisible')[0] as HTMLElement;
+              span.classList.remove('invisible');
+              span.classList.add('form-button-span');
+              
+              setTimeout(() => { 
+                span.classList.remove('form-button-span');
+                span.classList.add('invisible');
+                phone_email.classList.remove('ng-invalid');
+                password.classList.remove('ng-invalid');
+              }, 3000)
               this.showMessage
               ({
                 text: 'Пароль не верный',

@@ -108,9 +108,9 @@ body {
     border: none;
 
     // padding: 1.313rem 1.5rem;
-    margin-bottom: 1.5rem;
+    // margin-bottom: 1.5rem;
 
-    font-family: 'Inter';
+    font-family: 'Inter';   
     font-style: normal;
     font-weight: 400;
     font-size: 1.125em;
@@ -123,9 +123,9 @@ body {
     /* or 23px */
 }
 
-.password {
-    margin-bottom: 2.25rem;
-}
+// .password {
+//     margin-bottom: 2.25rem;
+// }
 
 .sign-up-button {
     width: 29.5rem;
@@ -140,7 +140,13 @@ body {
     font-size: 1.125em;
     line-height: 130%;
 
+    // margin-bottom: 10.625rem;
+    margin-top: 0.75rem;
+}
+
+#sign-up-button {
     margin-bottom: 10.625rem;
+    // margin-top: 0.75rem;
 }
 
 .sign-up-button:disabled {
@@ -153,6 +159,60 @@ body {
     background: #0069B4;
     color: #FFFFFF;
 }
+
+.sign-up-button:enabled:hover {
+    cursor: pointer;
+}
+
+.hide {
+    margin-left: -3em;
+    margin-bottom: -0.35em;
+}
+
+span {    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 130%;
+    color: #E22727;
+}
+
+.form-phone_email-span,
+.form-password-span,
+.form-button-span {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.invisible {
+    display: none;
+}
+
+.invisible2 {
+    display: none;
+}
+
+
+.new_class {
+    color: blue;
+}
+
+#phone_email, #password {
+    margin-bottom: 1.5rem;
+}
+
+.phone_email.ng-invalid, .password.ng-invalid {
+    background: #F5F7FA;
+    border: 2px solid #E22727;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+
+.phone_email.ng-untouched, .password.ng-untouched {
+    border: none;
+} 
 
 
 
