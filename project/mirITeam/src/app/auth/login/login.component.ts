@@ -47,6 +47,10 @@ export class LoginComponent implements OnInit {
   toMain() {
     this.router.navigate(['/main']);
   }
+  
+  toRegistration() {
+    this.router.navigate(['/registration']);
+  }
 
   private showMessage(message: Message) {
     this.message = message;

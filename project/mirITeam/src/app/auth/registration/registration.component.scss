@@ -98,7 +98,22 @@ body {
     margin-bottom: 2.25rem;
 }
 
-.phone_email, .password {
+.step {
+    margin-bottom: 1.5rem;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.125em;
+    line-height: 130%;
+    /* or 23px */
+
+    color: #000000;
+}
+
+.fcs, .pnumber, .email, .password, .repassword,
+.age, .course, .institute, .inn, .snils, .bshifr, .stnumber,
+.vk, .telegram {
     width: 29.5rem;
     height: 4.063rem;
 
@@ -123,7 +138,34 @@ body {
     /* or 23px */
 }
 
-// .password {
+.comment {
+    width: 29.5rem;
+    height: 8.125rem;
+
+    background: #F5F7FA;
+    border-radius: 8px;
+
+    border: none;
+
+    // padding: 1.313rem 1.5rem;
+    // margin-bottom: 1.5rem;
+
+    font-family: 'Inter';   
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.125em;
+    line-height: 130%;
+
+    box-sizing: border-box;
+    padding-left: 1.5rem;
+
+    color: #A5A5A5;
+    // text-align: start;
+    vertical-align: top;
+    /* or 23px */
+}
+
+// .pnumber {
 //     margin-bottom: 2.25rem;
 // }
 
@@ -144,6 +186,11 @@ body {
     margin-top: 0.75rem;
 }
 
+.arrow-left {
+    margin-bottom: -0.313rem;
+    margin-left: -10.188rem;
+}
+
 #sign-up-button {
     margin-bottom: 1.5rem;
     // margin-top: 0.75rem;
@@ -151,7 +198,6 @@ body {
 
 .sign-up-button:disabled {
     background: #DEDEDE;
-
     color: #8F8F8F;
 }
 
@@ -183,9 +229,11 @@ span {
     color: #E22727;
 }
 
-.form-phone_email-span,
-.form-password-span,
-.form-button-span {
+.form-fcs-span, .form-pnumber-span, .form-email-span,
+.form-password-span, .form-repassword-span, .form-age-span,
+.form-course-span, .form-institute-span, .form-inn-span,
+.form-snils-span, .form-bshifr-span, .form-stnumber-span,
+.form-vk-span, .form-telegram-span, .form-comment-span {
     display: flex;
     margin-top: 1rem;
 }
@@ -202,11 +250,17 @@ span {
     color: blue;
 }
 
-#phone_email, #password {
+#fcs, #pnumber, #email, #password, #repassword, #age,
+#course, #institute, #inn, #snils, #bshifr, #stnumber,
+#vk, #telegram, #comment {
     margin-bottom: 1.5rem;
 }
 
-.phone_email.ng-invalid, .password.ng-invalid {
+.fcs.ng-invalid, .pnumber.ng-invalid, .email.ng-invalid,
+.password.ng-invalid, .repassword.ng-invalid, .age.ng-invalid,
+.course.ng-invalid, .institute.ng-invalid, .inn.ng-invalid,
+.snils.ng-invalid, .bshifr.ng-invalid, .stnumber.ng-invalid,
+.vk.ng-invalid, .telegram.ng-invalid, .comment.ng-invalid {
     background: #F5F7FA;
     border: 2px solid #E22727;
     box-sizing: border-box;
@@ -214,18 +268,20 @@ span {
 }
 
 
-.phone_email.ng-untouched, .password.ng-untouched {
+.fcs.ng-untouched, .pnumber.ng-untouched, .email.ng-untouched,
+.password.ng-untouched, .repassword.ng-untouched, .age.ng-untouched,
+.course.ng-untouched, .institute.ng-untouched, .inn.ng-untouched,
+.snils.ng-untouched, .bshifr.ng-untouched, .stnumber.ng-untouched,
+.vk.ng-untouched, .telegram.ng-untouched, .comment.ng-untouched {
     border: none;
 } 
 
 .route {
     display: flex;
     justify-content: center;
-
-    padding-bottom: 6rem;
 }
 
-.toRegistration {
+.toLogin {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -234,11 +290,38 @@ span {
     color: #0069B4;
 }
 
-.toRegistration:hover {
+.toLogin:hover {
     color:#1A254A;
     cursor: pointer;
 }
 
+.steps {
+    display: flex;
+}
+
+.step_1,.step_2, .step_3, .step_4 {
+    display: none;
+    transition: .3s;
+}
+
+.previous {
+    display: flex;
+    justify-content: center;
+}
+
+.previous:hover {
+    cursor: pointer;
+}
+
+.previous p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.125em;
+    line-height: 130%;
+
+    color: #0069B4;
+}
 
 
 
@@ -310,16 +393,16 @@ footer .full-logo {
     padding-bottom: 2.25rem;
 }
 
-.icons .vk {
+.icons .vk_icon {
     padding-right: 1.25rem;
 }
 
-.icons .vk:hover, .icons .telegram:hover {
+.icons .vk_icon:hover, .icons .telegram_icon:hover {
     opacity: 90%;
     cursor: pointer;
 }
 
-.comment {
+.comment_footer {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;

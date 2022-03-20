@@ -7,12 +7,14 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from '../system/shared/shared.module';
 import { MainComponent } from './main/main.component';
 import { SidebarComponent } from '../system/shared/component/sidebar.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     AuthComponent,
-    MainComponent
+    MainComponent,
+    RegistrationComponent
   ],
   imports: [
     CommonModule,
