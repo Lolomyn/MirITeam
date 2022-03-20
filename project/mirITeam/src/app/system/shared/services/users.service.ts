@@ -22,11 +22,11 @@ export class UsersService {
     ) {
   }
   
-  getUserByLogin(login: string): Observable<User>{
-    const url = environment.apiHost + `?login=${login}`; 
+  getUserByLogin(email: string): Observable<User>{
+    const url = environment.apiHost + `?email=${email}`; 
     return this.http.get<User>(url)
     .pipe(
-    catchError(this.httperrorhandler.handleError<User>(`getuser id=${login}`))
+    catchError(this.httperrorhandler.handleError<User>(`getuser id=${email}`))
     );
   }
 

@@ -1,99 +1,87 @@
-//@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
-//@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow&display=swap');
-//
-//.bill_body{
-//  position: relative;
-//  margin: auto;
-//  margin-top: 15px;
-//  font-family: 'Roboto Condensed';
-//  height: auto;
-//  font-size: 20px;
-//  background-color: white;
-//  padding-bottom: 40px;
-//  text-align: center;
-//}
-//.button1{
-//  color: #034c8c !important;
-//  font-family: 'Roboto Condensed';
-//  text-transform: uppercase;
-//  text-decoration: none;
-//  background: #ffffff;
-//  padding: 10px;
-//  border: 2px solid #494949 !important;
-//  display: inline-block;
-//  transition: all 0.4s ease 0s;
-//}
-//.button1:hover {
-//  color: #ffffff !important;
-//  background: #034c8c;
-//  border-color: #034c8c !important;
-//  transition: all 0.4s ease 0s;
-//}
-//
-//footer{
-//  position: fixed;
-//  background-color: #034c8c;
-//  width: 100%;
-//  height: 7%;
-//  left: 0;
-//  bottom: 0;
-//  z-index: 10;
-//}
-//
-//.footer_title{
-//  padding: 5px;
-//  position: center;
-//  height: auto;
-//  font-family:'Roboto Condensed';
-//  color: white;
-//  text-align: center;
-//}
-//
-//.img_link{
-//  padding: 5px;
-//}
 footer {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  display: block;
-}
-.footer-text1{
-  /* Все права защищены */
+  background-color: #0069B4;
+  height: 16rem;
+  padding-top: 2.25rem;
+  padding-bottom: 1.5rem;
 
-  position: absolute;
-  width: 200px;
-  height: 21px;
-  left: 320px;
-  top: 929px;
-
-  font-family: Inter;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 130%;
-  /* identical to box height, or 21px */
-  color: #666666;
+  // display: flex;
+  // justify-content: center;
 }
 
-.footer-text2{
-  /* УПКК 2021 */
-
-  position: absolute;
-  width: 264px;
-  height: 21px;
-  left: 1420px;
-  top: 929px;
-
-  font-family: Inter;
+footer .logo, footer .text-logo2 {
+  font-family: 'Inter';
   font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
+  font-weight: 600;
+  font-size: 1.75em;
   line-height: 130%;
-  /* identical to box height, or 21px */
 
-  color: #666666;
+  display: flex;
+}
+
+footer .circumflex-logo, footer .text-logo, footer .text-logo2 {
+  color: #FFFFFF;
+}
+
+footer .full-logo {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  padding-bottom: 1.5rem;
+}
+
+.some-text {
+  display: flex;
+  justify-content: center;
+}
+
+.some-text .politics, .some-text .help {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.25em;
+  line-height: 130%;
+
+  color: #FFFFFF;
+}
+
+.some-text {
+  padding-bottom: 1.5rem;
+}
+
+.some-text .politics {
+  padding-right: 1.25rem;
+}
+
+.some-text .politics:hover, .some-text .help:hover {
+  text-decoration-line: underline;
+  cursor: pointer;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+
+  padding-bottom: 2.25rem;
+}
+
+.icons .vk {
+  padding-right: 1.25rem;
+}
+
+.icons .vk:hover, .icons .telegram:hover {
+  opacity: 90%;
+  cursor: pointer;
+}
+
+.comment {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.875em;
+  line-height: 130%;
+
+  text-align: center;
+  color: #E7E7E7;
 }

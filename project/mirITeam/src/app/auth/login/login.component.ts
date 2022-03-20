@@ -5,8 +5,6 @@ import {Message} from '../../system/shared/models/message.model';
 import {AuthService} from '../../system/shared/auth.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import { User } from 'src/app/system/shared/models/user.model';
-import { delay } from 'rxjs';
-
 
 @Component({
   selector: 'app-login',
@@ -103,15 +101,11 @@ export class LoginComponent implements OnInit {
           });
         }
         else if (user) {
-          if (user[0].password === formData.password) {
+          if (user[0].password === formData.password && user[0].email === formData.phone_email || user[0].pnumber === formData.phone_email) {
             this.message.text = '';
             window.localStorage.setItem('user', JSON.stringify(user));
             this.authService.login();
             this.router.navigate(['/system', 'profile']);
-            // switch (user[0].type) {
-            //   case ('Администратор'): this.router.navigate(['/system', 'admin']); break;
-            //   case ('Студент'): this.router.navigate(['/system', 'prepod']); break;
-            // }
           } else {
               console.log('Введен неверный пароль!');
               let phone_email = document.getElementsByClassName('phone_email')[0] as HTMLElement;

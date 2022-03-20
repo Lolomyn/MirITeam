@@ -1,7 +1,19 @@
 
 export interface User {
-     login: string,
+     email: string,
      password: string,
-     isChecked?: boolean;
+     fcs: string,
+     age: number,
+     course: number,
+     institute: string,
+     groupID: string,
+     vk: string,
+     telegram: string,
+     pnumber: string,
+     stnumber: number,
+     inn: number,
+     snils: number,
+     bshifr: string,
+     comment: string,
      id?: number
 }

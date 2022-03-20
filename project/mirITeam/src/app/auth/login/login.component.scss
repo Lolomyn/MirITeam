@@ -169,6 +169,10 @@ body {
     margin-bottom: -0.35em;
 }
 
+.hide:hover {
+    cursor: pointer;
+}
+
 span {    
     font-family: 'Inter';
     font-style: normal;
@@ -192,7 +196,6 @@ span {
 .invisible2 {
     display: none;
 }
-
 
 .new_class {
     color: blue;
