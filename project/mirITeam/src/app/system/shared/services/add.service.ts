@@ -20,16 +20,3 @@ constructor(
     );
   }
 }
-
-//////////////////
-
-  // async Study(study: Studying) {
-  //   const response = await this.http.post('http://localhost:3000/study', study)
-  //     .toPromise();
-  //   return response;
-  //     }
-  // async Theme(themes: ThemesModel) {
-  //   const response = await this.http.post('http://localhost:3000/study', themes)
-  //     .toPromise();
-  //   return response;
-  // }
