@@ -5,11 +5,12 @@ import { SystemRoutingModule } from './system-routing.module';
 import { SystemComponent } from './system.component';
 import { HeaderComponent } from './shared/component/header.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SidebarComponent } from './shared/component/sidebar.component';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, ProfileComponent],
+  declarations: [HeaderComponent, ProfileComponent, SidebarComponent],
   imports: [
     CommonModule, SharedModule, SystemRoutingModule
   ]

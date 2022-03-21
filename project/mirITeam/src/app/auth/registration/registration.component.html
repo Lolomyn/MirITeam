@@ -1,0 +1,197 @@
+<header>
+    <div class="full-logo">
+        <div class="logo">
+            <p class="circumflex-logo">*/</p> 
+            <p class="text-logo">Цифровое</p>
+        </div>
+        <p class="text-logo2">портфолио</p>
+    </div>
+    <div class="buttons">
+        <button (click)="toMain()" class="registration-button">
+            <p class="registration-button-text">На главную</p> 
+        </button>
+    </div>
+</header>
+
+<body>
+    <form [formGroup]="form" (ngSubmit)="onSubmit(fcs.value, pnumber.value, email.value, password.value, age.value, 
+    inn.value, snils.value, bshifr.value, stnumber.value, vk.value, telegram.value, comment.value);">
+        <p class="login-header">Регистрация </p>
+        <div class="steps">
+            <div class="s1">
+                <p class="step">Шаг 1 из 4</p>
+                <div class="form-group" id="fcs" [ngClass]="{'has-error': form.get('fcs').invalid && form.get('fcs').touched}">
+                    <input autocomplete="off" type="text" class="fcs" placeholder = "ФИО" formControlName = "fcs" #fcs>
+                    <span class="form-fcs-span" *ngIf="form.get('fcs').invalid && form.get('fcs').touched">
+                        <span *ngIf="form.get('fcs')['errors']['required']">Введите ФИО</span>
+                    </span>
+                </div>
+                <div class="form-group" (click)="addText()" id="pnumber" [ngClass]="{'has-error': form.get('pnumber').invalid && form.get('pnumber').touched}">
+                    <input id="tel" autocomplete="off" type="tel" value="" class="pnumber" placeholder = "Телефон" formControlName = "pnumber" #pnumber>
+                    <span class="form-pnumber-span" *ngIf="form.get('pnumber').invalid && form.get('pnumber').touched">
+                        <span *ngIf="form.get('pnumber')['errors']['required']">Введите телефон</span>
+                    </span>
+                </div>
+                <div class="form-group" id="email" [ngClass]="{'has-error': form.get('email').invalid && form.get('email').touched}">
+                    <input autocomplete="off" type="email" class="email" placeholder = "Email" formControlName = "email" #email>
+                    <span class="form-email-span" *ngIf="form.get('email').invalid && form.get('email').touched">
+                        <span *ngIf="form.get('email')['errors']['required']">Введите Email</span>
+                    </span>
+                </div>
+                <div class="form-group" id="password" [ngClass]="{'has-error': form.get('password').invalid && form.get('password').touched}">
+                    <input autocomplete="off" type="password" [type]="show ? 'text' : 'password'" class="password" 
+                    placeholder = "Пароль не менее 8 символов" formControlName = "password" #password>
+                    <img src={{imageSrc}} (click)="showPassword()" class="hide" alt="">
+                    <span class="form-password-span" *ngIf="form.get('password').invalid && form.get('password').touched">
+                        <span *ngIf="form.get('password')['errors']['required']">Введите пароль</span>
+                        <span *ngIf="form.get('password')['errors']['minlength']">Пароль короче 8 символов</span>
+                    </span>
+                </div>
+                <div class="form-group" id="repassword" [ngClass]="{'has-error': form.get('repassword').invalid && form.get('repassword').touched}">
+                    <input autocomplete="off" type="password" [type]="show ? 'text' : 'password'" class="repassword" 
+                    placeholder = "Повторить пароль" formControlName = "repassword" #repassword>                
+                    <span class="form-repassword-span" *ngIf="form.get('password').invalid && form.get('repassword').touched">
+                        <span *ngIf="form.get('repassword')['errors']['required']">Введите пароль еще раз</span>
+                    </span>
+                    <span class="form-repassword-span" *ngIf="form.hasError('notSame')">Пароли не совпадают</span> 
+                    
+                </div>
+                <div class="form-group" id="sign-up-button">
+                    <button type="button" (click)="toNextStep(2)" class="sign-up-button" [disabled]="form.invalid">Следующий шаг
+                        <img *ngIf="form.invalid" class="arrow-left" src="../../../assets/chevron-left.svg" alt="">
+                        <img *ngIf="form.valid" class="arrow-left" src="../../../assets/chevron-left (2).svg" alt="">
+                    </button>
+                </div>
+                <div class="route">
+                    <p class="toLogin" (click)="toLogin()">Авторизироваться</p>
+                </div>
+            </div>
+            <div class="step_2 s2">
+                <p class="step">Шаг 2 из 4</p>
+                <div class="form-group" id="age" [ngClass]="{'has-error': form.get('age').invalid && form.get('age').touched}">
+                    <input autocomplete="off" type="text" class="age" placeholder = "Возраст" formControlName = "age" #age>
+                    <span class="form-age-span" *ngIf="form.get('age').invalid && form.get('age').touched">
+                        <span *ngIf="form.get('age')['errors']['pattern']">Только цифры</span>
+                    </span>
+                </div>
+                <div class="form-group" id="institute" [ngClass]="{'has-error': form.get('institute').invalid && form.get('institute').touched}">
+                    <!-- <input autocomplete="off" type="text" class="institute" placeholder = "Институт" formControlName = "institute"> -->
+                    <select class="institute">
+                        <option value="" hidden>Институт</option>
+                        <option class="option" value="ИТС">ИТС</option>
+                        <option class="option" value="ИПТМ">ИПТМ</option>
+                        <option class="option" value="ИЯЭиТФ">ИЯЭиТФ</option>
+                        <option class="option" value="ИРИТ">ИРИТ</option>
+                        <option class="option" value="ИНЭЛ">ИНЭЛ</option>
+                        <option class="option" value="ИФХТиМ">ИФХТиМ</option>
+                        <option class="option" value="ИНЭУ">ИНЭУ</option>
+                        <option class="option" value="АВШ">АВШ</option>
+                        <option class="option" value="ИПС">ИПС</option>
+                        <option class="option" value="ФДПиДОУ">ФДПиДОУ</option>
+                    </select>
+                </div>
+                <div class="form-group" id="course" [ngClass]="{'has-error': form.get('course').invalid && form.get('course').touched}">
+                    <!-- <input autocomplete="off" type="text" class="course" placeholder = "Курс обучения" formControlName = "course"> -->
+                    <select class="course">
+                        <option value="" hidden>Курс обучения</option>
+                        <option class="option" value="ИТС">1</option>
+                        <option class="option" value="ИПТМ">2</option>
+                        <option class="option" value="ИЯЭиТФ">3</option>
+                        <option class="option" value="ИРИТ">4</option>
+                        <option class="option" value="ИНЭЛ">5</option>
+                        <option class="option" value="ИФХТиМ">6</option>
+                    </select>
+                </div>
+                <div class="form-group" id="groupID" [ngClass]="{'has-error': form.get('groupID').invalid && form.get('groupID').touched}">
+                    <input autocomplete="off" type="text" class="groupID" placeholder = "Номер группы" formControlName = "groupID" #groupID>
+                </div>
+                <div class="form-group" id="sign-up-button">
+                    <button type="button" (click)="toNextStep(3)" class="sign-up-button" [disabled]="form.invalid">Следующий шаг
+                        <img *ngIf="form.invalid" class="arrow-left" src="../../../assets/chevron-left.svg" alt="">
+                        <img *ngIf="form.valid" class="arrow-left" src="../../../assets/chevron-left (2).svg" alt="">
+                    </button>
+                </div>
+                <div class="previous" (click)="toPreviousStep(1)">
+                    <img src="../../../assets/chevron-left (1).svg" alt=""><p>Предыдущий шаг</p>
+                </div>
+            </div>
+            <div class="step_3 s3">
+                <p class="step">Шаг 3 из 4</p>
+                <div class="form-group" id="inn" [ngClass]="{'has-error': form.get('inn').invalid && form.get('inn').touched}">
+                    <input autocomplete="off" type="text" class="inn" placeholder = "ИНН" formControlName = "inn" #inn>
+                    <span class="form-inn-span" *ngIf="form.get('inn').invalid && form.get('inn').touched">
+                        <span *ngIf="form.get('inn')['errors']['pattern']">Только цифры</span>
+                    </span>
+                </div>
+                <div class="form-group" id="snils" [ngClass]="{'has-error': form.get('snils').invalid && form.get('snils').touched}">
+                    <input autocomplete="off" type="text" class="snils" placeholder = "СНИЛС" formControlName = "snils" #snils>
+                    <span class="form-snils-span" *ngIf="form.get('snils').invalid && form.get('snils').touched">
+                        <span *ngIf="form.get('snils')['errors']['pattern']">Только цифры</span>
+                    </span>
+                </div>
+                <div class="form-group" id="bshifr" [ngClass]="{'has-error': form.get('bshifr').invalid && form.get('bshifr').touched}">
+                    <input autocomplete="off" type="text" class="bshifr" placeholder = "Бухгалтерский шифр" formControlName = "bshifr" #bshifr>
+                </div>
+                <div class="form-group" id="stnumber" [ngClass]="{'has-error': form.get('stnumber').invalid && form.get('stnumber').touched}">
+                    <input autocomplete="off" type="text" class="stnumber" placeholder = "Номер студенческого билета" formControlName = "stnumber" #stnumber>
+                    <span class="form-stnumber-span" *ngIf="form.get('stnumber').invalid && form.get('stnumber').touched">
+                        <span *ngIf="form.get('stnumber')['errors']['pattern']">Только цифры</span>
+                    </span>
+                </div>
+                <div class="form-group" id="sign-up-button">
+                    <button type="button" (click)="toNextStep(4)" class="sign-up-button" [disabled]="form.invalid">Следующий шаг
+                        <img *ngIf="form.invalid" class="arrow-left" src="../../../assets/chevron-left.svg" alt="">
+                        <img *ngIf="form.valid" class="arrow-left" src="../../../assets/chevron-left (2).svg" alt="">
+                    </button>
+                </div>
+                <div class="previous" (click)="toPreviousStep(2)">
+                    <img src="../../../assets/chevron-left (1).svg" alt=""><p>Предыдущий шаг</p>
+                </div>
+            </div>
+            <div class="step_4 s4">
+                <p class="step">Шаг 4 из 4</p>
+                <div class="form-group" id="vk" [ngClass]="{'has-error': form.get('vk').invalid && form.get('vk').touched}">
+                    <input autocomplete="off" type="text" class="vk" placeholder = "Ссылка на Вконтакте" formControlName = "vk" #vk>
+                </div>
+                <div class="form-group" id="telegram" [ngClass]="{'has-error': form.get('telegram').invalid && form.get('telegram').touched}">
+                    <input autocomplete="off" type="text" class="telegram" placeholder = "Ссылка на Telegram" formControlName = "telegram" #telegram>
+                </div>
+                <div class="form-group" id="comment" [ngClass]="{'has-error': form.get('comment').invalid && form.get('comment').touched}">
+                    <textarea autocomplete="off" type="text" class="comment" placeholder = "Другие контактные данные" formControlName = "comment" #comment></textarea>
+                </div>
+                <div class="form-group" id="sign-up-button">
+                    <button type="submit" class="sign-up-button" [disabled]="form.invalid">Зарегистрироваться</button>
+                </div>
+                <div class="previous" (click)="toPreviousStep(3)">
+                    <img src="../../../assets/chevron-left (1).svg" alt=""><p>Предыдущий шаг</p>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+<footer>
+    <div class="full-logo">
+        <div class="logo">
+            <p class="text-logo">*/ЦИФРОВОЕ</p> 
+        </div>
+        <div class="text-logo2">ПОРТФОЛИО</div>
+    </div>
+    <div class="some-text">
+        <div class="politics">
+            Политика конфиденциальности
+        </div>
+        <div class="help">
+            Поддержка
+        </div>
+    </div>
+    <div class="icons">
+        <div class="vk_icon">
+            <a href="https://vk.com/nntudigital" target="blank"><img src="../../../assets/VK - Original.svg" alt=""></a>
+        </div>
+        <div class="telegram_icon">
+            <a href="https://t.me/nntudigital" target="_blank"><img src="../../../assets/Telegram - Original.svg" alt=""></a>
+        </div>
+    </div>
+    <div class="comment_footer"><p>Учебный проект в рамках дисциплины «Большие данные»</p></div>
+  </footer>

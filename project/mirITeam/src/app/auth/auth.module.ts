@@ -5,11 +5,16 @@ import {AuthComponent} from './auth.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from '../system/shared/shared.module';
+import { MainComponent } from './main/main.component';
+import { SidebarComponent } from '../system/shared/component/sidebar.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
-    AuthComponent
+    AuthComponent,
+    MainComponent,
+    RegistrationComponent
   ],
   imports: [
     CommonModule,
