@@ -8,6 +8,7 @@ import {SharedModule} from '../system/shared/shared.module';
 import { MainComponent } from './main/main.component';
 import { SidebarComponent } from '../system/shared/component/sidebar.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { TextMaskModule } from 'angular2-text-mask';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { RegistrationComponent } from './registration/registration.component';
     AuthRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    TextMaskModule
   ]
 
 })

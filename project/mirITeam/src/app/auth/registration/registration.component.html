@@ -15,7 +15,7 @@
 
 <body>
     <form [formGroup]="form" (ngSubmit)="onSubmit(fcs.value, pnumber.value, email.value, password.value, age.value, 
-    inn.value, snils.value, bshifr.value, stnumber.value, vk.value, telegram.value, comment.value)">
+    course.value, institute.value, groupID.value, inn.value, snils.value, bshifr.value, stnumber.value, vk.value, telegram.value, comment.value)">
         <p class="login-header">Регистрация </p>
         <div class="steps">
             <div class="s1">
@@ -26,10 +26,11 @@
                         <span *ngIf="form.get('fcs')['errors']['required']">Введите ФИО</span>
                     </span>
                 </div>
-                <div class="form-group" (click)="addText()" id="pnumber" [ngClass]="{'has-error': form.get('pnumber').invalid && form.get('pnumber').touched}">
-                    <input id="tel" autocomplete="off" type="tel" value="" class="pnumber" placeholder = "Телефон" formControlName = "pnumber" #pnumber>
+                <div class="form-group" (keyup)="addText($event)" id="pnumber" [ngClass]="{'has-error': form.get('pnumber').invalid && form.get('pnumber').touched}">
+                    <input id="tel" autocomplete="off" type="tel" value="" class="pnumber" [textMask]="{mask: phoneMask}"
+                    placeholder = "Телефон" formControlName = "pnumber" #pnumber>
                     <span class="form-pnumber-span" *ngIf="form.get('pnumber').invalid && form.get('pnumber').touched">
-                        <span *ngIf="form.get('pnumber')['errors']['required']">Введите телефон</span>
+                        <span *ngIf="form.get('pnumber')['errors']['required']">Введите телефон</span>  
                     </span>
                 </div>
                 <div class="form-group" id="email" [ngClass]="{'has-error': form.get('email').invalid && form.get('email').touched}">
@@ -76,7 +77,7 @@
                 </div>
                 <div class="form-group" id="institute" [ngClass]="{'has-error': form.get('institute').invalid && form.get('institute').touched}">
                     <!-- <input autocomplete="off" type="text" class="institute" placeholder = "Институт" formControlName = "institute"> -->
-                    <select class="institute">
+                    <select class="institute" #institute>
                         <option value="" hidden>Институт</option>
                         <option class="option" value="ИТС">ИТС</option>
                         <option class="option" value="ИПТМ">ИПТМ</option>
@@ -92,14 +93,14 @@
                 </div>
                 <div class="form-group" id="course" [ngClass]="{'has-error': form.get('course').invalid && form.get('course').touched}">
                     <!-- <input autocomplete="off" type="text" class="course" placeholder = "Курс обучения" formControlName = "course"> -->
-                    <select class="course">
+                    <select class="course" #course>
                         <option value="" hidden>Курс обучения</option>
-                        <option class="option" value="ИТС">1</option>
-                        <option class="option" value="ИПТМ">2</option>
-                        <option class="option" value="ИЯЭиТФ">3</option>
-                        <option class="option" value="ИРИТ">4</option>
-                        <option class="option" value="ИНЭЛ">5</option>
-                        <option class="option" value="ИФХТиМ">6</option>
+                        <option class="option" value="1">1</option>
+                        <option class="option" value="2">2</option>
+                        <option class="option" value="3">3</option>
+                        <option class="option" value="4">4</option>
+                        <option class="option" value="5">5</option>
+                        <option class="option" value="6">6</option>
                     </select>
                 </div>
                 <div class="form-group" id="groupID" [ngClass]="{'has-error': form.get('groupID').invalid && form.get('groupID').touched}">
@@ -120,13 +121,17 @@
                 <div class="form-group" id="inn" [ngClass]="{'has-error': form.get('inn').invalid && form.get('inn').touched}">
                     <input autocomplete="off" type="text" class="inn" placeholder = "ИНН" formControlName = "inn" #inn>
                     <span class="form-inn-span" *ngIf="form.get('inn').invalid && form.get('inn').touched">
-                        <span *ngIf="form.get('inn')['errors']['pattern']">Только цифры</span>
+                        <span *ngIf="form.get('inn')['errors']['pattern']">Только цифры &nbsp;</span>
+                        <span *ngIf="form.get('inn')['errors']['maxlength']">ИНН содержит 12 цифр</span>
+                        <span *ngIf="form.get('inn')['errors']['minlength']">ИНН содержит 12 цифр</span>
                     </span>
                 </div>
                 <div class="form-group" id="snils" [ngClass]="{'has-error': form.get('snils').invalid && form.get('snils').touched}">
                     <input autocomplete="off" type="text" class="snils" placeholder = "СНИЛС" formControlName = "snils" #snils>
                     <span class="form-snils-span" *ngIf="form.get('snils').invalid && form.get('snils').touched">
-                        <span *ngIf="form.get('snils')['errors']['pattern']">Только цифры</span>
+                        <span *ngIf="form.get('snils')['errors']['pattern']">Только цифры &nbsp;</span>
+                        <span *ngIf="form.get('snils')['errors']['maxlength']">СНИЛС содержит 11 цифр</span>
+                        <span *ngIf="form.get('snils')['errors']['minlength']">СНИЛС содержит 11 цифр</span>
                     </span>
                 </div>
                 <div class="form-group" id="bshifr" [ngClass]="{'has-error': form.get('bshifr').invalid && form.get('bshifr').touched}">

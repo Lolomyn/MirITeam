@@ -17,6 +17,7 @@ export class RegistrationComponent implements OnInit {
   form: FormGroup;
   message: Message;
   user: User[] = [];
+  public phoneMask;
 
   constructor(
     private usersService: UsersService,
@@ -27,18 +28,19 @@ export class RegistrationComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    
     this.form = new FormGroup({
       fcs: new FormControl(null, [Validators.required]),
       pnumber: new FormControl(null, [Validators.required]),
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [Validators.required, Validators.minLength(8)]), 
-      repassword: new FormControl(null, [Validators.required]), // добавить валидатор для проверки пароля
+      repassword: new FormControl(null, [Validators.required]),
       age: new FormControl(null, [Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
       course: new FormControl(),
       institute: new FormControl(),
       groupID: new FormControl(),
-      inn: new FormControl(null, [Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
-      snils: new FormControl(null, [Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
+      inn: new FormControl(null, [Validators.pattern(/^-?(0|[1-9]\d*)?$/), Validators.maxLength(12), Validators.minLength(12)]),
+      snils: new FormControl(null, [Validators.pattern(/^-?(0|[1-9]\d*)?$/), Validators.maxLength(11), Validators.minLength(11)]),
       bshifr: new FormControl(),
       stnumber: new FormControl(),
       vk: new FormControl(),
@@ -55,10 +57,10 @@ export class RegistrationComponent implements OnInit {
     return password === repassword ? null : { notSame: true }
   }
 
-  addText() {
-    let pnumber_input = (<HTMLInputElement>document.getElementById('tel'));
-    if (pnumber_input.value == "" || pnumber_input.value == "+" || pnumber_input.value == "+7") pnumber_input.value = "+7 ";
-  }
+  // addText() {
+  //   let pnumber_input = (<HTMLInputElement>document.getElementById('tel'));
+  //   if (pnumber_input.value == "" || pnumber_input.value == "+") pnumber_input.value = "+7";
+  // }
 
   show: boolean = false;
   imageSrc = "../../../assets/eye-off.svg";
@@ -71,6 +73,16 @@ export class RegistrationComponent implements OnInit {
       this.show = false;
       this.imageSrc = "../../../assets/eye-off.svg";
     }
+  }
+
+  count = 1;
+  addText(event: any) {
+    let pnumber_input = (<HTMLInputElement>document.getElementById('tel'));
+    
+    if (event.target.value === "8" && this.count == 1) {
+      this.phoneMask = ['8', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/,'-', /\d/, /\d/];
+    } else if (this.count == 1) this.phoneMask = ['+', '7', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/,'-', /\d/, /\d/];
+    this.count = 2;
   }
 
   toMain() {
@@ -99,17 +111,15 @@ export class RegistrationComponent implements OnInit {
     curstep.classList.add('step_'+(step+1));
   }
 
-  onSubmit(fcs, pnumber, email, password, age, /*course, */ 
-    /*institute, groupID, */inn, snils, bshifr, stnumber, vk, telegram, comment) {
-      var institute = "ИРИТ";
-      var course = 4;
-      var groupID = "18-ИТД";
+  onSubmit(fcs, pnumber, email, password, age, course, 
+    institute, groupID, inn, snils, bshifr, stnumber, vk, telegram, comment) {
       this.addService.User({fcs, pnumber, email, password, age, course, 
       institute, groupID, inn, snils, bshifr, stnumber, vk, telegram, comment} as User)
       .subscribe(user => {
         this.user.push(user);
       });
       alert("Пользователь добавлен");
+      this.router.navigate(['/login']);
   }
 }
 

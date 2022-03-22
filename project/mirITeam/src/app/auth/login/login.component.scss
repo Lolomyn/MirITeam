@@ -119,7 +119,7 @@ body {
     box-sizing: border-box;
     padding-left: 1.5rem;
 
-    color: #A5A5A5;
+    color: black;
     /* or 23px */
 }
 
@@ -237,6 +237,10 @@ span {
 .toRegistration:hover {
     color:#1A254A;
     cursor: pointer;
+}
+
+input {
+    outline: none;
 }
 
 
