@@ -1,3 +1,12 @@
 <app-header></app-header>
-
+<h1>Загрузка файлов на сервер</h1>
+<div class="text-center">
+    <input class="form-control" type="file" 
+            (change)="onChange($event)">
+  
+    <button (click)="onUpload()" 
+        class="btn btn-success">
+        Upload
+    </button>
+</div>
 <app-sidebar></app-sidebar>

@@ -1,5 +1,7 @@
 const express = require("express");
+const fileupload = require("express-fileupload");
 const bodyParser = require("body-parser");
+const fileRouter = require("./app/routes/file.routes")
 const cors = require("cors");
 
 const app = express();
@@ -15,10 +17,10 @@ db.sequelize.sync();
 // db.sequelize.sync({ force: true }).then(() => {
 //     console.log("Drop and re-sync db.");
 //   });
-
+app.use(fileupload({}));
 // parse requests of content-type - application/json
+app.use("/api/files", fileRouter);
 app.use(express.json());
-
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 // simple route
