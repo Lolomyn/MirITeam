@@ -17,9 +17,9 @@ db.sequelize.sync();
 // db.sequelize.sync({ force: true }).then(() => {
 //     console.log("Drop and re-sync db.");
 //   });
-app.use(fileupload({}));
+// app.use(fileupload({}));
 // parse requests of content-type - application/json
-app.use("/api/files", fileRouter);
+// app.use("/api/files", fileRouter);
 app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
