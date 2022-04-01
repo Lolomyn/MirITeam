@@ -20,6 +20,6 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.users = require("./userbd.model.js")(sequelize, Sequelize);
-// db.files = require("./File")(sequelize,Sequelize);
+db.files = require("./File.js")(sequelize, Sequelize);;
 
 module.exports = db;

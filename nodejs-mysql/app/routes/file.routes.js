@@ -1,10 +1,13 @@
-// const Router = require('express')
-// const router = new Router()
-// // const authMiddleware = require('../middleware/auth.middleware')
-// const fileController = require('../controller/fileController')
+const express = require("express");
+const router = express.Router();
+const controller = require("../controller/file.controller");
 
-// router.post('', fileController.createDir)
-// router.post('/upload', fileController.uploadFile)
-// router.get('', fileController.getFiles)
+let routes = (app) => {
+  router.post("/upload", controller.upload);
+  router.get("/files", controller.getListFiles);
+  router.get("/files/:name", controller.download);
 
-// module.exports = router
+  app.use(router);
+};
+
+module.exports = routes;
