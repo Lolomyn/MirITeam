@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../shared/models/user.model';
 import { AddService } from '../shared/services/add.service';
 
 @Component({
@@ -10,28 +11,31 @@ export class ProfileComponent implements OnInit {
   file: File = null;
   loading: boolean = false;
   shortLink: string = "";
+  user: User;
   constructor(
     private addService: AddService,
   ) { }
 
   ngOnInit(): void {
   }
+
   onChange(event) {
     this.file = event.target.files[0];
-}
-onUpload() {
-      this.loading = !this.loading;
-      console.log(this.file);
-      this.addService.upload(this.file).subscribe(
-          (event: any) => {
-              if (typeof (event) === 'object') {
+  }
 
-                  // Short link via api response
-                  this.shortLink = event.link;
+  onUpload() {
+    this.loading = !this.loading;
+    console.log(this.file);
+    this.addService.upload(this.file).subscribe(
+      (event: any) => {
+          if (typeof (event) === 'object') {
 
-                  this.loading = false; // Flag variable 
-              }
+              // Short link via api response
+              this.shortLink = event.link;
+
+              this.loading = false; // Flag variable 
           }
-      );
+      }
+    );
   }
 }

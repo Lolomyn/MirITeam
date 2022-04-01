@@ -1,14 +1,13 @@
 <header>
-  <div class="full-logo">
-      <div class="logo">
-          <p class="circumflex-logo">*/</p> 
-          <p class="text-logo">Цифровое</p>
-      </div>
-      <p class="text-logo2">портфолио</p>
-  </div>
-  <div class="buttons">
-      <button (click)="onLogout()" class="login-button">
-          <p class="login-button-text">Выйти</p> 
-      </button>
-  </div>
+    <div class="full-logo">
+        <div class="logo">
+            <p class="circumflex-logo">*/</p> 
+            <p class="text-logo">Цифровое</p>
+        </div>
+        <p class="text-logo2">портфолио</p>
+    </div>
+    <div class="header">
+        <p class="username">{{user[0].fcs}}</p>
+        <img src="../../../../assets/log-out.svg" (click)="onLogout()" class="onlogout">
+    </div>
 </header>

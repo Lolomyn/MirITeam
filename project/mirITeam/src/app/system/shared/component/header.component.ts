@@ -10,7 +10,7 @@ import { StudyingService } from '../services/studying.service';
 })
 export class HeaderComponent implements OnInit {
   date: Date = new Date();
-  user: User[] = [];
+  user: User;
   constructor (
     private authService: AuthService,
     private router: Router,
@@ -22,11 +22,14 @@ export class HeaderComponent implements OnInit {
     this.studyingService.getUser();
     // this.ShowMenu();
     // this.ShoMenu2();
+    this.user = JSON.parse(window.localStorage.getItem('user'));
   }
   onLogout() {
     this.authService.logout();
     this.router.navigate(['/main']);
   }
+
+  
 // ShowMenu(){
 //   var i;
 //   var menu = document.querySelectorAll('.burger');

@@ -1,87 +1,55 @@
-footer {
-  background-color: #0069B4;
-  height: 16rem;
-  padding-top: 2.25rem;
-  padding-bottom: 1.5rem;
+.sidebar {
+  width: 17.375rem;
+  height: 44.5rem;
 
-  // display: flex;
-  // justify-content: center;
+  padding: 0 2.75rem;
+
+  background: #FFFFFF;
 }
 
-footer .logo, footer .text-logo2 {
-  font-family: 'Inter';
+.logo, .text-logo2 {
   font-style: normal;
   font-weight: 600;
-  font-size: 1.75em;
+  font-size: 1.5em;
   line-height: 130%;
 
   display: flex;
 }
 
-footer .circumflex-logo, footer .text-logo, footer .text-logo2 {
-  color: #FFFFFF;
+.circumflex-logo {
+  color: #0069B4;
 }
 
-footer .full-logo {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-
-  padding-bottom: 1.5rem;
+.text-logo {
+  color: black;
 }
 
-.some-text {
-  display: flex;
-  justify-content: center;
+.full-logo {
+  padding-bottom: 1.75rem;
 }
 
-.some-text .politics, .some-text .help {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 1.25em;
-  line-height: 130%;
-
-  color: #FFFFFF;
+ul {
+  list-style-type: none;
 }
 
-.some-text {
-  padding-bottom: 1.5rem;
-}
-
-.some-text .politics {
-  padding-right: 1.25rem;
-}
-
-.some-text .politics:hover, .some-text .help:hover {
-  text-decoration-line: underline;
-  cursor: pointer;
-}
-
-.icons {
-  display: flex;
-  justify-content: center;
-
-  padding-bottom: 2.25rem;
-}
-
-.icons .vk {
-  padding-right: 1.25rem;
-}
-
-.icons .vk:hover, .icons .telegram:hover {
-  opacity: 90%;
-  cursor: pointer;
-}
-
-.comment {
+li {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
-  font-size: 0.875em;
+  font-size: 1.25rem;
   line-height: 130%;
+  /* dark-cyan */
 
-  text-align: center;
-  color: #E7E7E7;
+  color: black;
+
+  padding-bottom: 0.75em;
+}
+
+.current {
+  color: #0069B4;
+}
+
+li:hover {
+  cursor: pointer;
+  color: #0069B4;
 }
