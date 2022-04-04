@@ -15,7 +15,7 @@
 
 <body>
     <form [formGroup]="form" (ngSubmit)="onSubmit(fcs.value, pnumber.value, email.value, password.value, age.value, 
-    course.value, institute.value, groupID.value, inn.value, snils.value, bshifr.value, stnumber.value, vk.value, telegram.value, comment.value)">
+    course.value, institute.value, groupID.value, inn.value, snils.value, bshifr.value, stnumber.value, vk.value, telegram.value, avg.value, comment.value)">
         <p class="login-header">Регистрация </p>
         <div class="steps">
             <div class="s1">
@@ -143,6 +143,9 @@
                         <span *ngIf="form.get('stnumber')['errors']['pattern']">Только цифры</span>
                     </span>
                 </div>
+                <div class="form-group" id="avg" [ngClass]="{'has-error': form.get('avg').invalid && form.get('avg').touched}">
+                    <input autocomplete="off" type="text" class="avg" placeholder = "Средний балл за все года обучения" formControlName = "avg" #avg>
+                </div>
                 <div class="form-group" id="sign-up-button">
                     <button type="button" (click)="toNextStep(4)" class="sign-up-button" [disabled]="form.invalid">Следующий шаг
                         <img *ngIf="form.invalid" class="arrow-left" src="../../../assets/chevron-left.svg" alt="">
@@ -156,10 +159,10 @@
             <div class="step_4 s4">
                 <p class="step">Шаг 4 из 4</p>
                 <div class="form-group" id="vk" [ngClass]="{'has-error': form.get('vk').invalid && form.get('vk').touched}">
-                    <input autocomplete="off" type="text" class="vk" placeholder = "Ссылка на Вконтакте" formControlName = "vk" #vk>
+                    <input autocomplete="off" type="text" class="vk" placeholder = "Id Вконтакте" formControlName = "vk" #vk>
                 </div>
                 <div class="form-group" id="telegram" [ngClass]="{'has-error': form.get('telegram').invalid && form.get('telegram').touched}">
-                    <input autocomplete="off" type="text" class="telegram" placeholder = "Ссылка на Telegram" formControlName = "telegram" #telegram>
+                    <input autocomplete="off" type="text" class="telegram" placeholder = "Никнейм Telegram" formControlName = "telegram" #telegram>
                 </div>
                 <div class="form-group" id="comment" [ngClass]="{'has-error': form.get('comment').invalid && form.get('comment').touched}">
                     <textarea autocomplete="off" type="text" class="comment" placeholder = "Другие контактные данные" formControlName = "comment" #comment></textarea>

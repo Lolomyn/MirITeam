@@ -1,16 +1,16 @@
 <div class="content">
-    <header>
+    <!-- <header> -->
         <div class="header">
-            <p class="title" *ngIf="url == profile">Личный Кабинет</p>
+            <p class="title" *ngIf="url == profile">Личный кабинет</p>
             <p class="title" *ngIf="url == portfolio">Индивидуальные достижения</p>
             <p class="title" *ngIf="url == achievements">Награды</p>
             <p class="title" *ngIf="url == rating">Рейтинг</p>
             <p class="title" *ngIf="url == news">Новости</p>
             <p class="title" *ngIf="url == inst_manage">Управление ВУЗ’ом</p>
             <p class="title" *ngIf="url == self_development">Саморазвитие</p>
-            <p class="username">{{user[0].fcs}}</p>
         </div>
-    </header>
+        <p class="username">{{user[0].fcs}}</p>
+    <!-- </header> -->
     <div class="container">
         <img src="../../../../assets/log-out.svg" (click)="onLogout()" class="onlogout">
     </div>

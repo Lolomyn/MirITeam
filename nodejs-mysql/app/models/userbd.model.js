@@ -46,6 +46,9 @@ module.exports = (sequelize, Sequelize) => {
         bshifr: {
             type: Sequelize.STRING
         },
+        avg: {
+            type: Sequelize.STRING
+        },
         comment: {
             type: Sequelize.STRING
         }

@@ -118,7 +118,7 @@ body {
 
 .fcs, .pnumber, .email, .password, .repassword,
 .age, .course, .groupID, .institute, .inn, .snils, .bshifr, .stnumber,
-.vk, .telegram {
+.vk, .avg, .telegram {
     width: 29.5rem;
     height: 4.063rem;
 
@@ -247,7 +247,7 @@ span {
 .form-password-span, .form-repassword-span, .form-age-span,
 .form-course-span, .form-institute-span,.form-groupID-span, .form-inn-span,
 .form-snils-span, .form-bshifr-span, .form-stnumber-span,
-.form-vk-span, .form-telegram-span, .form-comment-span {
+.form-vk-span, .form-telegram-span, .form-avg-span, .form-comment-span {
     display: flex;
     margin-top: 1rem;
 }
@@ -266,7 +266,7 @@ span {
 
 #fcs, #pnumber, #email, #password, #repassword, #age,
 #course, #institute, #groupID, #inn, #snils, #bshifr, #stnumber,
-#vk, #telegram, #comment {
+#vk, #telegram, #avg, #comment {
     margin-bottom: 1.5rem;
 }
 
@@ -274,7 +274,7 @@ span {
 .password.ng-invalid, .repassword.ng-invalid, .age.ng-invalid,
 .course.ng-invalid, .institute.ng-invalid, .groupID.ng-invalid, .inn.ng-invalid,
 .snils.ng-invalid, .bshifr.ng-invalid, .stnumber.ng-invalid,
-.vk.ng-invalid, .telegram.ng-invalid, .comment.ng-invalid {
+.vk.ng-invalid, .telegram.ng-invalid, .avg.ng-invalid .comment.ng-invalid {
     background: #F5F7FA;
     border: 2px solid #E22727;
     box-sizing: border-box;
@@ -286,7 +286,7 @@ span {
 .password.ng-untouched, .repassword.ng-untouched, .age.ng-untouched,
 .course.ng-untouched, .institute.ng-untouched, .groupID.ng-untouched .inn.ng-untouched,
 .snils.ng-untouched, .bshifr.ng-untouched, .stnumber.ng-untouched,
-.vk.ng-untouched, .telegram.ng-untouched, .comment.ng-untouched {
+.vk.ng-untouched, .telegram.ng-untouched, .avg.ng-untouched, .comment.ng-untouched {
     border: none;
 } 
 

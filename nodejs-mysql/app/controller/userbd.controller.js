@@ -26,6 +26,7 @@ exports.create = (req, res) => {
             inn: req.body.inn,
             snils: req.body.snils,
             bshifr: req.body.bshifr,
+            avg: req.body.avg,
             comment: req.body.comment
           };
           User.create(users)

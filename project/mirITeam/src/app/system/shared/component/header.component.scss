@@ -5,6 +5,7 @@
     box-sizing: border-box;
     border-left: none;
     border-top: none;
+    align-items: center;
 }
 
 .container {
@@ -12,7 +13,7 @@
     border-left: 1px solid #8F8F8F;
     box-sizing: border-box;
     // border-left: none;
-    margin-left: auto;
+    // margin-left: auto;
 }
 
 header {
@@ -24,7 +25,7 @@ header {
     // border-top: none;
     align-items: center;
     // width: 1000px;
-    padding-right: 58.4rem;
+    // padding-right: 58.4rem;
 }
 
 .title {
@@ -35,6 +36,7 @@ header {
     line-height: 120%;
     color: #000000;
     padding-right: 2rem;
+    padding-left: 1.25rem;
 }
 
 .header {
@@ -42,7 +44,9 @@ header {
 }
 
 .username {
+    // padding-left: 46rem;
     margin-left: auto;
+    margin-right: 1.25rem;
 }
 
 .onlogout {

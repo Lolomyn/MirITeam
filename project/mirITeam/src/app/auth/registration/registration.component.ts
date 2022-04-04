@@ -112,9 +112,9 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSubmit(fcs, pnumber, email, password, age, course, 
-    institute, groupID, inn, snils, bshifr, stnumber, vk, telegram, comment) {
+    institute, groupID, inn, snils, bshifr, stnumber, vk, telegram, avg, comment) {
       this.addService.User({fcs, pnumber, email, password, age, course, 
-      institute, groupID, inn, snils, bshifr, stnumber, vk, telegram, comment} as User)
+      institute, groupID, inn, snils, bshifr, stnumber, vk, telegram, avg, comment} as User)
       .subscribe(user => {
         this.user.push(user);
       });

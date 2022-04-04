@@ -3,7 +3,97 @@
     <div class="new-components">
         <app-header></app-header>
         <body>
-            
+            <p class="greetings">Привет, {{user[0].fcs}}!</p>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-title">
+                        <p>Основная информация</p>
+                        <a (click)="edit()" class="edit"></a>
+                    </div>
+                    <table>
+                        <tr>
+                            <td><p>ФИО</p></td>
+                            <td><p>{{user[0].fcs}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>Телефон </p></td>
+                            <td><p>{{user[0].pnumber}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>Email</p></td>
+                            <td><p>{{user[0].email}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>Возраст</p></td>
+                            <td><p>{{user[0].age}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>Пароль</p></td>
+                            <td><p>{{user[0].password}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>№ студ. билета</p></td>
+                            <td><p>{{user[0].stnumber}}</p></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="card">
+                    <div class="card-title">
+                        <p>Дополнительная информация</p>
+                        <a (click)="edit()" class="edit"></a>
+                    </div>
+                    <table>
+                        <tr>
+                            <td><p>ИНН</p></td>
+                            <td><p>{{user[0].inn}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>СНИЛС </p></td>
+                            <td><p>{{user[0].snils}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>Id Вконтакте</p></td>
+                            <td><p>{{user[0].vk}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>Никнейм Телеграм</p></td>
+                            <td><p>{{user[0].telegram}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>Контактные данные</p></td>
+                            <td><p>{{user[0].comment}}</p></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="card">
+                    <div class="card-title">
+                        <p>Учебная информация</p>
+                        <a (click)="edit()" class="edit"></a>
+                    </div>
+                    <table>
+                        <tr>
+                            <td><p>Институт</p></td>
+                            <td><p>{{user[0].institute}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>Группа</p></td>
+                            <td><p>{{user[0].groupID}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>Курс</p></td>
+                            <td><p>{{user[0].course}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>Бухгалтерский шифр</p></td>
+                            <td><p>{{user[0].bshifr}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>Средний балл</p></td>
+                            <td><p>{{user[0].avg}}</p></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </body>
     </div>
 </div>

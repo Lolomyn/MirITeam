@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.user = JSON.parse(window.localStorage.getItem('user'));
   }
 
   onChange(event) {
@@ -40,5 +41,9 @@ export class ProfileComponent implements OnInit {
       );
       alert("Файл успешно загружен!");
     }
+  }
+
+  edit() {
+    alert("Сделать редактирование");
   }
 }

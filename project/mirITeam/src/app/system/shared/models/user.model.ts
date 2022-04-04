@@ -14,6 +14,7 @@ export interface User {
      inn: number,
      snils: number,
      bshifr: string,
+     avg: string,
      comment: string,
      id?: number
 }
