@@ -1,14 +1,20 @@
 <div class="sidebar">
+    <div class="full-logo">
+        <div class="logo">
+            <p class="circumflex-logo">*/</p> 
+            <p class="text-logo">Цифровое</p>
+        </div>
+        <p class="text-logo2">портфолио</p>
+    </div>
     <div class="navigate">
         <ul>
-            <li class="current">Личный кабинет</li>
-            <li>Индивидуальные достижения</li>
-            <li>Награды</li>
-            <li>Рейтинг</li>
-            <li>Новости</li>
-            <li>Управление ВУЗ’ом</li>
-            <li>Саморазвитие</li>
-            <li>Профиль</li>
+            <li class="current profile" (click)="toProfile()">Личный кабинет</li>
+            <li class="portfolio" (click)="toPortfolio()">Индивидуальные достижения</li>
+            <li class="achievements" (click)="toAchievements()">Награды</li>
+            <li class="rating" (click)="toRating()">Рейтинг</li>
+            <li class="news" (click)="toNews()">Новости</li>
+            <li class="inst-manage" (click)="toInstManage()">Управление ВУЗ’ом</li>
+            <li class="self-development" (click)="toSelfDevelopment()">Саморазвитие</li>
         </ul>
     </div>
 </div>

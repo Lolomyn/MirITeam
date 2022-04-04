@@ -23,11 +23,22 @@ export class HeaderComponent implements OnInit {
     // this.ShowMenu();
     // this.ShoMenu2();
     this.user = JSON.parse(window.localStorage.getItem('user'));
+    // alert(location.href);
   }
+
   onLogout() {
     this.authService.logout();
     this.router.navigate(['/main']);
   }
+
+  url = location.href;
+  profile = "http://localhost:4200/system/profile";
+  portfolio = "http://localhost:4200/system/portfolio";
+  rating = "http://localhost:4200/system/rating";
+  news = "http://localhost:4200/system/news";
+  inst_manage = "http://localhost:4200/system/inst-manage";
+  self_development = "http://localhost:4200/system/self-development";
+  achievements = "http://localhost:4200/system/achievements";
 
   
 // ShowMenu(){

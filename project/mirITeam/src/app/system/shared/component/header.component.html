@@ -1,13 +1,17 @@
-<header>
-    <div class="full-logo">
-        <div class="logo">
-            <p class="circumflex-logo">*/</p> 
-            <p class="text-logo">Цифровое</p>
+<div class="content">
+    <header>
+        <div class="header">
+            <p class="title" *ngIf="url == profile">Личный Кабинет</p>
+            <p class="title" *ngIf="url == portfolio">Индивидуальные достижения</p>
+            <p class="title" *ngIf="url == achievements">Награды</p>
+            <p class="title" *ngIf="url == rating">Рейтинг</p>
+            <p class="title" *ngIf="url == news">Новости</p>
+            <p class="title" *ngIf="url == inst_manage">Управление ВУЗ’ом</p>
+            <p class="title" *ngIf="url == self_development">Саморазвитие</p>
+            <p class="username">{{user[0].fcs}}</p>
         </div>
-        <p class="text-logo2">портфолио</p>
-    </div>
-    <div class="header">
-        <p class="username">{{user[0].fcs}}</p>
+    </header>
+    <div class="container">
         <img src="../../../../assets/log-out.svg" (click)="onLogout()" class="onlogout">
     </div>
-</header>
+</div>

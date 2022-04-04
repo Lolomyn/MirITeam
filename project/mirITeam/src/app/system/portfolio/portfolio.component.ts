@@ -3,15 +3,16 @@ import { User } from '../shared/models/user.model';
 import { AddService } from '../shared/services/add.service';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  selector: 'app-portfolio',
+  templateUrl: './portfolio.component.html',
+  styleUrls: ['./portfolio.component.scss']
 })
-export class ProfileComponent implements OnInit {
+export class PortfolioComponent implements OnInit {
   file: File = null;
   loading: boolean = false;
   shortLink: string = "";
   user: User;
+  
   constructor(
     private addService: AddService,
   ) { }
@@ -41,4 +42,5 @@ export class ProfileComponent implements OnInit {
       alert("Файл успешно загружен!");
     }
   }
+
 }

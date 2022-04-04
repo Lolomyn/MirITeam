@@ -1,18 +1,20 @@
 footer {
     background-color: #0069B4;
-    // height: 16rem;
+    // height: 7.625rem;
     padding-top: 2.25rem;
+    padding: 2.188rem 14.25rem;
     // padding-bottom: 1.5rem;
   
     // display: flex;
     // justify-content: center;
+    display: flex;
   }
   
   footer .logo, footer .text-logo2 {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
-    font-size: 1.75em;
+    font-size: 1.188em;
     line-height: 130%;
   
     display: flex;
@@ -21,37 +23,42 @@ footer {
   footer .circumflex-logo, footer .text-logo, footer .text-logo2 {
     color: #FFFFFF;
   }
-  
-  footer .full-logo {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  
-    padding-bottom: 1.5rem;
+
+  .full-logo {
+    padding-right: 1.75rem;
   }
+  
+  // footer .full-logo {
+  //   display: flex;
+  //   justify-content: center;
+  //   flex-direction: column;
+  //   align-items: center;
+  
+  //   padding-bottom: 1.5rem;
+  // }
   
   .some-text {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    // justify-content: center;
   }
   
   .some-text .politics, .some-text .help {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
-    font-size: 1.25em;
+    font-size: 0.875em;
     line-height: 130%;
   
     color: #FFFFFF;
   }
-  
+
   .some-text {
-    padding-bottom: 1.5rem;
+    margin-left: auto;
   }
   
   .some-text .politics {
-    padding-right: 1.25rem;
+    padding-right: 1.125rem;
   }
   
   .some-text .politics:hover, .some-text .help:hover {
@@ -61,27 +68,19 @@ footer {
   
   .icons {
     display: flex;
-    justify-content: center;
-  
-    padding-bottom: 2.25rem;
+    align-items: center;
+  }
+
+  .icons .vk {
+    padding-right: 1rem;
   }
   
-  .icons .vk {
-    padding-right: 1.25rem;
+  .vk .telegram {
+    width: 1.75rem;
+    height: 1.75rem;
   }
   
   .icons .vk:hover, .icons .telegram:hover {
     opacity: 90%;
     cursor: pointer;
-  }
-  
-  .comment {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 0.875em;
-    line-height: 130%;
-  
-    text-align: center;
-    color: #E7E7E7;
   }

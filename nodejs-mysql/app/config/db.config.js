@@ -4,7 +4,7 @@ module.exports = {
     PASSWORD: "&yJFTN6l",
     DB: "bons133t_mirteam",
     dialect: "mysql",
-    filePath: "C:\\Users\\bons1\\Documents\\git\\MirITeam\\project\\mirITeam\\src\\files",
+    // filePath: "C:\\Users\\bons1\\Documents\\git\\MirITeam\\project\\mirITeam\\src\\files",
     pool: {
       max: 5,
       min: 0,

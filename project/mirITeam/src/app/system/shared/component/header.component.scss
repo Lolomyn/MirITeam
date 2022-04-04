@@ -1,54 +1,51 @@
+.content {
+    display: flex;
+    // width: 100.5rem;
+    border: 1px solid #8F8F8F;
+    box-sizing: border-box;
+    border-left: none;
+    border-top: none;
+}
 
-
-html {
-    font-size: 16px;
+.container {
+    padding: 1.25rem 0.938rem;
+    border-left: 1px solid #8F8F8F;
+    box-sizing: border-box;
+    // border-left: none;
+    margin-left: auto;
 }
 
 header {
-    // padding: 2.25rem 14.25rem;
-    padding: 0 0 0 2.75rem;
     display: flex;
-    // margin-bottom: 3.75em;
-    padding-top: 2.25rem;
-    // margin-left: 85%;
-    // position: absolute;
+    padding: 1.25rem 0.938rem;
+    // border: 1px solid #8F8F8F;
+    // box-sizing: border-box;
+    // border-left: none;
+    // border-top: none;
+    align-items: center;
+    // width: 1000px;
+    padding-right: 58.4rem;
 }
-.logo, .text-logo2 {
+
+.title {
+    font-family: 'Inter';
     font-style: normal;
-    font-weight: 600;
-    font-size: 1.5em;
-    line-height: 130%;
-  
-    display: flex;
-  }
-  
-  .circumflex-logo {
-    color: #0069B4;
-  }
-  
-  .text-logo {
-    color: black;
-  }
-
-body {
-    padding: 2.25rem 14.25rem;
-    // height: 655px;
-}
-
-.full-logo {
-    padding-bottom: 1.75rem;
+    font-weight: 500;
+    font-size: 1.25em;
+    line-height: 120%;
+    color: #000000;
+    padding-right: 2rem;
 }
 
 .header {
-    // position: absolute;
-    margin-left: auto;
-    margin-right: 2.75rem;
     display: flex;
-    
+}
+
+.username {
+    margin-left: auto;
 }
 
 .onlogout {
-    padding-left: 0.75rem;
     width: 1.5rem;
     height: 1.5rem;
 }
@@ -57,12 +54,12 @@ body {
     cursor: pointer;
 }
 
-.username {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1em;
-    line-height: 130%;
-    /* identical to box height, or 21px */
-    color: #000000;
-}
+// .username {
+//     font-family: 'Inter';
+//     font-style: normal;
+//     font-weight: 500;
+//     font-size: 1em;
+//     line-height: 130%;
+//     /* identical to box height, or 21px */
+//     color: #000000;
+// }
