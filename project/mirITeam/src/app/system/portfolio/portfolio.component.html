@@ -3,13 +3,128 @@
     <div class="new-components">
         <app-header></app-header>
         <body>
-            <body>
-                <h1>Загрузка файлов на сервер</h1>
-                <div class="text-center">
-                    <input class="form-control" type="file" (change)="onChange($event)">
-                    <button (click)="onUpload()" class="btn btn-success"> Upload </button>
+            <div class="main">
+                <div class="search-delete-loadExcel">
+                    <div class="search">
+                        <input placeholder="Поиск" id="myInput" (keyup)="myFunction()">
+                    </div>
+                    <div class="icons">
+                        <div class="icon1">
+                            <p (click)="delete()" class="delete"></p>
+                        </div>
+                        <div class="icon2">
+                            <p (click)="doit('xlsx')" class="toExcel"></p>
+                        </div>
+                    </div>
                 </div>
-            </body>
+                <div class="myPortfolio">
+                    <table border="1" class="no-double myTable1" id="myTable_list" >
+                        <tr>
+                            <th>
+                                <input type="checkbox" id="checkbox-id">
+                                <label for="checkbox-id"></label>
+                            </th>
+                            <th>Наименование</th>
+                            <th>Статус</th>
+                            <th>Организатор</th>
+                            <th>Степень</th>
+                            <th>Дата получения</th>
+                            <th>
+                                <div class="ball">
+                                    <span class="ball-title">Балл</span>
+                                    <p (click)="helpInfo()" class="help"></p>
+                                    <div class="check hidden_info">
+                                        <p class="info-title">Распределение баллов</p>
+                                        <p class="info-subtitle">Муниципальный</p>
+                                        <p class="info-text">Победитель  — 3 балла</p>
+                                        <p class="info-text">Призёр  — 2 балла</p>
+                                        <p class="info-text">Участник  — 1 балла</p>
+                                        <p class="info-text">Дипломант — 0,5 балла</p>
+                                        <p class="info-subtitle">Областной</p>
+                                        <p class="info-text">Победитель  — 4 балла</p>
+                                        <p class="info-text">Призёр  — 3 балла</p>
+                                        <p class="info-text">Участник — 2 балл</p>
+                                        <p class="info-text">Дипломант — 1 балла</p>
+                                        <p class="info-subtitle">Всероссийский</p>
+                                        <p class="info-text">Победитель  — 5 баллов</p>
+                                        <p class="info-text">Призёр  — 4 балла</p>
+                                        <p class="info-text">Участник — 3 балла</p>
+                                        <p class="info-text">Дипломант — 2 балла</p>
+                                    </div>
+                                </div>
+                            <th></th>
+                        </tr>
+                        <!-- Заменить на БД достижений -->
+                        <tr *ngFor="let User of userr">
+                            <td>
+                                <input type="checkbox" id="checkbox-id">
+                                <label for="checkbox-id"></label>
+                            </td>
+                            <td>{{User.fcs}}</td>
+                            <td>{{User.fcs}}</td>
+                            <td>{{User.fcs}}</td>
+                            <td>{{User.fcs}}</td>
+                            <td>{{User.fcs}}</td>
+                            <td>5</td>
+                            <td><p (click)="edit()" class="edit"></p></td>   
+                        </tr>
+                        
+                    </table>
+                </div>
+            </div>
+            <div class="add">
+                <form action="">
+                    <div class="add-title">
+                        <div class="title">
+                            <p>Добавление достижения</p>
+                        </div>
+                    </div>
+                    <div class="load-gramota">
+                        <div class="add-button">
+                            <input class="form-control" type="file" (change)="onChange($event)">
+                            <!-- <p>Добавить фотографию/скан</p> -->
+                        </div>
+                        <div class="load" (click)="onUpload()">
+                            <p>Загрузить</p>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <p class="mini-title">Наименование олимпиады</p>
+                        <input type="text" placeholder="Всероссийская олимпиады школьников">
+                    </div>
+                    <div class="input-field">
+                        <p class="mini-title">Статус</p>
+                        <select name="" id="">
+                            <option selected value="Победитель">Муниципальный</option>
+                            <option value="Призёр">Областной</option>
+                            <option value="Участник">Всероссийский</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <p class="mini-title">Организатор</p>
+                        <input type="text" placeholder="Школа №54">
+                    </div>
+                    <div class="input-field">
+                        <p class="mini-title">Степень</p>
+                        <select name="" id="">
+                            <option selected value="Участник">Участник</option>
+                            <option value="Дипломант">Дипломант</option>
+                            <option value="Призёр">Призёр</option>
+                            <option  value="Победитель">Победитель</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <p class="mini-title">Дата получения</p>
+                        <div class="calendar">
+                            <input type="date">
+                            <!-- <p class="calend"></p> -->
+                        </div>
+                    </div>
+                    <div class="input-field-btn">
+                        <p (click)="add()" class="add-portfolio-btn">Добавить</p>
+                    </div>
+                </form>
+            </div>
         </body>
     </div>
 </div>

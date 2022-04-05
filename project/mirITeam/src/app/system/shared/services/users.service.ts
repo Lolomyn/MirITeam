@@ -45,9 +45,7 @@ export class UsersService {
       catchError(this.httperrorhandler.handleError<User>('deleteUser'))
     );
   }
-
-
-
+  
   updateUser(user: User): Observable<any> {
     const url = `${environment.apiHost}/${user.id}`;
     return this.http.put(url, user, httpOptions).pipe(

@@ -1,6 +1,11 @@
 body {
     // background-color: #EFEFEF;
-    padding: 1rem;
+    // padding: 1rem;
+    display: flex;
+}
+
+.main {
+    width: 75%;
 }
 
 .components {
@@ -12,3 +17,432 @@ body {
     flex-direction: column;
     width: 100%;
 }
+
+.search-delete-loadExcel {
+    display: flex;
+    align-items: center;
+    // width: 100%;
+    border-bottom: 1px solid #8F8F8F;
+    // padding: 1.125rem;
+}
+
+.delete {
+    background-image: url(../../../assets/trash-2.svg);
+    // border: 1px solid #8F8F8F;
+    width: 1.125rem;
+    height: 1.125rem;
+}
+
+.delete:hover {
+    background-image: url(../../../assets/trash-2-hover.svg);
+    // border: 1px solid #8F8F8F;
+    width: 1.125rem;
+    height: 1.125rem;
+    cursor: pointer;
+}
+
+.toExcel {
+    background-image: url(../../../assets/download.svg);
+    // border: 1px solid #8F8F8F;
+    width: 1rem;
+    height: 1rem;
+}
+
+.toExcel:hover {
+    background-image: url(../../../assets/download-hover.svg);
+    // border: 1px solid #8F8F8F;
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+}
+
+.search {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 145%;
+    /* or 23px */
+    color: #565656;
+    padding: 0 1.25rem;
+    width: 100%;
+}
+
+input {
+    outline: 0;
+    outline-offset: 0;
+    border: none;
+    width: 100%;
+}
+
+.icons {
+    display: flex;
+    margin-left: auto;
+    // margin-right: 1.125rem;
+}
+
+.icon1 {
+    border-left: 1px solid #8F8F8F;
+    border-right: 1px solid #8F8F8F;
+    padding: 1.125rem;
+}
+.icon2 {
+    padding: 1.125rem;
+    border-right: 1px solid #8F8F8F;
+}
+
+tr th input:hover {
+    cursor: pointer;
+}
+
+.ball {
+    display: flex;
+}
+
+.hidden_info {
+    display: none;
+    // position: absolute;
+    // // width: 13.438rem;
+    // // height: 27.188rem;
+
+    // background: #FFFFFF;
+    // border: 1px solid #8F8F8F;
+    // box-sizing: border-box;
+    // border-radius: 12px;
+
+    // margin-top: 2rem;
+    // margin-left: 3rem;
+
+    // padding: 1.25rem;
+}
+
+.unhidden-info {
+    position: absolute;
+    // width: 13.438rem;
+    // height: 27.188rem;
+
+    background: #FFFFFF;
+    border: 1px solid #8F8F8F;
+    box-sizing: border-box;
+    border-radius: 12px;
+
+    margin-top: 2rem;
+    margin-left: 3rem;
+
+    padding: 1.25rem;
+}
+
+.info-title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1em;
+    line-height: 145%;
+    /* or 23px */
+    color: #000000;
+    padding-bottom: 0.5rem;
+}
+
+.info-subtitle {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.875em;
+    line-height: 145%;
+    /* or 20px */
+    color: #000000;
+    padding-bottom: 0.25rem;
+}
+
+.info-text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.875em;
+    line-height: 145%;
+    color: #000000;
+    padding-bottom: 0.25rem;
+} 
+
+.help {
+    background-image: url(../../../assets/help-circle.svg);
+    width: 1.125rem;
+    height: 1.125rem;
+}
+
+.help:hover {
+    background-image: url(../../../assets/help-circle-hover.svg);
+    width: 1.125rem;
+    height: 1.125rem;
+    cursor: pointer;
+}
+
+ 
+
+.ball-title {
+    padding-right: 0.25rem;
+}
+
+table {
+    border: 1px solid #8F8F8F;
+    border-collapse: collapse;
+    border-top: none;
+    border-left: none;
+    width: 100%;
+}
+
+table tr th {
+    padding: 1.063rem 1.125rem;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.875em;
+    line-height: 145%;
+
+    color: #000000;
+    text-align: left;
+}
+
+th input {
+    width: 1rem;
+    height: 1rem;
+}
+
+table tr td {
+    padding: 1.063rem 1.125rem;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 145%;
+    /* or 23px */
+    color: #000000;
+    text-align: left;
+}
+
+
+.edit {
+    background-image: url(../../../assets/edit.svg);
+    width: 1rem;
+    height: 1rem;
+}
+
+.edit:hover {
+    background-image: url(../../../assets/edit-hover.svg);
+    cursor: pointer;
+}
+
+.add {
+    padding-left: 1rem;
+    width: 25%;
+}
+
+.add-title {
+    // width: 23.75rem;
+    border-bottom: 1px solid #8F8F8F;
+    border-left: 1px solid #8F8F8F;
+}
+
+.title {
+    padding: 1.02rem 1rem;
+    border-right: 1px solid #8F8F8F;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1em;
+    line-height: 130%;
+    /* identical to box height, or 21px */
+    color: #000000;
+}
+
+.load-gramota {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #8F8F8F;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.875em;
+    line-height: 145%;
+    /* or 20px */
+
+
+    color: #000000;
+}
+
+.add-button {
+    padding: 1.063rem 1.125rem;
+    border-left: 1px solid #8F8F8F;
+}
+
+.add-button:hover {
+    cursor: pointer;
+}
+
+.load {
+    padding: 1.063rem 1.125rem;
+    margin-left: auto;
+    border-right: 1px solid #8F8F8F;
+    border-left: 1px solid #8F8F8F;
+}
+
+.load:hover {
+    color: #0069B4;
+}
+
+.load:hover {
+    cursor: pointer;
+}
+
+.input-field {
+    padding: 0.625rem 1.125rem;
+    border-left: 1px solid #8F8F8F;
+    border-bottom: 1px solid #8F8F8F;
+}
+
+.mini-title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.563em;
+    line-height: 145%;
+    color: #565656;
+}
+
+.myPortfolio {
+    overflow-y: scroll;
+    margin-right: -1rem;
+    max-height: 46.375rem;
+}
+::-webkit-scrollbar {
+    width: 1rem;               /* ширина scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: white;        /* цвет дорожки */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #CEEBFF;    /* цвет плашки */ 
+}
+
+select {
+    outline: 0;
+    outline-offset: 0;
+    border: none;
+    width: 100%;
+
+    // font: inherit;
+    // letter-spacing: inherit;
+    // word-spacing: inherit;
+    // -moz-appearance: none;
+    // -webkit-appearance: none;
+    appearance: none;
+}
+
+select:not([multiple]) {
+    padding-right: 1.2em;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 0.25em) 0.35em;
+    background-size: 1.125em auto;
+    background-image: url(../../../assets/chevron-down.svg);
+  }
+
+select:hover {
+    cursor: pointer;
+}
+
+.calendar input:hover {
+    cursor: pointer;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background-image: url(../../../assets/calendar.svg);  
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    background-image: url(../../../assets/calendar-hover.svg);  
+    cursor: pointer;
+}
+
+.add-portfolio-btn {
+    text-align: center;
+}
+
+.input-field-btn {
+    padding: 1rem;
+    background-color: white;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.875em;
+    line-height: 145%;
+    /* or 20px */
+    color: black;
+    border: 1px solid #8F8F8F;
+    border-top: none    ;
+}
+
+.input-field-btn:hover {
+    background-color: #0069B4;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+}
+
+.add-portfolio-btn:hover {
+    cursor: pointer;
+}
+
+/* прячем input checkbox */
+input[type="checkbox"] {
+    display: none;
+}
+  
+  /* стили для метки */
+  label {
+    // color: #000;
+    // cursor: default;
+    // font-weight: normal;
+    // line-height: 30px;
+    // // padding: 10px 0;
+    // vertical-align: middle;
+  }
+  
+  /* формируем внешний вид чекбокса в псевдоэлементе before */
+  label:before {
+    content: " ";
+    color: #000;
+    display: inline-block;
+    // font: 20px/30px Arial;
+    // margin-right: 15px;
+    // position: relative;
+    // text-align: center;
+    // text-indent: 0px;
+    width: 0.625rem;
+    height: 0.625rem;
+    // background: #FFF;
+    border: 1px solid #8F8F8F;
+    border-image: initial;
+    // vertical-align: middle;
+    border-radius: 0.25rem;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 0.15em) 0.2em;
+    background-size: 1.125em auto;
+    padding: 0.25rem;
+  }
+  
+  /* вариации внешнего вида в зав-ти от статуса checkbox */
+  /* checked */
+  input:checked + label:before {
+    content: "";
+    background-image: url(../../../assets/check.svg);
+    background-repeat: no-repeat;
+    background-position: calc(100% - 0.05rem) 0.05rem;
+    background-size: 1.125em auto;
+    background-color: #0069B4;
+  }
+  /* disabled */
+  input:disabled + label:before {
+    color: #0069B4;
+  }
