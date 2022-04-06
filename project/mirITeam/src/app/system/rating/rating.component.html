@@ -1,9 +1,28 @@
 <div class="components">
-    <app-sidebar></app-sidebar>
+    <app-sidebar class="border"></app-sidebar>
     <div class="new-components">
         <app-header></app-header>
         <body>
-            
+            <div class="search">
+                <div class="search-input">
+                    <input placeholder="Поиск" id="myInput">
+                </div>
+            </div>
+            <div class="myRating">
+                <table border="1" class="no-double myTable1" id="myTable_list" >
+                    <tr>
+                        <th class="number">№</th>
+                        <th class="fcs">ФИО</th>
+                        <th class="rating">Рейтинговый балл</th>
+                    </tr>
+                    <!-- Заменить на БД достижений -->
+                    <tr *ngFor="let User of userr; let i = index;">
+                        <td>{{i+1}}</td>
+                        <td>{{User.fcs}}</td>
+                        <td></td>
+                    </tr>   
+                </table>
+            </div>
         </body>
     </div>
 </div>

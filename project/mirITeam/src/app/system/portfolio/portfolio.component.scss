@@ -4,6 +4,10 @@ body {
     display: flex;
 }
 
+.border {
+    border-right: 1px solid #8F8F8F;
+}
+
 .main {
     width: 75%;
 }
@@ -135,7 +139,7 @@ tr th input:hover {
 .info-title {
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1em;
     line-height: 145%;
     /* or 23px */
@@ -195,7 +199,7 @@ table tr th {
     padding: 1.063rem 1.125rem;
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 0.875em;
     line-height: 145%;
 
@@ -248,7 +252,7 @@ table tr td {
     border-right: 1px solid #8F8F8F;
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1em;
     line-height: 130%;
     /* identical to box height, or 21px */

@@ -1,6 +1,13 @@
 body {
     // background-color: #EFEFEF;
-    padding: 1rem;
+    padding: 2.5rem 1.5rem;
+    width: 86.25rem;
+    border-right: 1px solid #8F8F8F;
+    height: 100%;
+}
+
+.border {
+    border-right: 1px solid #8F8F8F;
 }
 
 .components {
@@ -12,3 +19,88 @@ body {
     flex-direction: column;
     width: 100%;
 }
+
+.news-line {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1.5rem;
+}
+
+.news {
+    width: 26.938rem;
+    padding-right: 1.563rem;
+}
+
+.news-right {
+    width: 26.938rem;
+    // padding-right: 1.563rem;
+}
+
+.news-photo{
+    width: 26.938rem;
+    height: 15.625rem;
+    border-radius: 0.75rem 0.75rem 0px 0px;
+}
+
+.news-text {
+    background: #F5F7FA;
+    border-radius: 0 0 0.75rem 0.75rem;
+    padding: 1.5rem;
+    padding-top: 1.25rem;
+    margin-top: -0.3rem;
+}
+
+.news-title-date {
+    display: flex;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.875em;
+    line-height: 145%;
+    /* or 20px */
+    color: #8F8F8F;
+
+    padding-bottom: 0.5rem;
+}
+
+.news-date {
+    margin-left: auto;  
+}
+
+.news-description {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.125em;
+    line-height: 145%;
+    /* or 26px */
+    color: #000000;
+    // text-decoration-line: underline;
+}
+
+.news-description:hover {
+    text-decoration-line: underline;
+    cursor: pointer;
+}
+
+a {
+    text-decoration-line: none;
+    color: #000000;
+}
+
+// body {
+//     overflow-y: scroll;
+//     max-height: 50rem;
+// }
+// ::-webkit-scrollbar {
+//     width: 1rem;               /* ширина scrollbar */
+// }
+
+// ::-webkit-scrollbar-track {
+//     background: white;        /* цвет дорожки */
+// }
+
+// ::-webkit-scrollbar-thumb {
+//     background-color: #CEEBFF;    /* цвет плашки */ 
+// }

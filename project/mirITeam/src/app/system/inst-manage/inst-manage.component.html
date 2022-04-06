@@ -1,9 +1,45 @@
 <div class="components">
-    <app-sidebar></app-sidebar>
+    <app-sidebar class="border"></app-sidebar>
     <div class="new-components">
         <app-header></app-header>
         <body>
-            
+            <div class="voice">
+                <span class="ball-title">Вес твоего голоса: 1.13</span>
+                <p (click)="helpInfo()" class="help"></p>
+                <div class="check hidden_info">
+                    <p class="info-title">Вес голоса расчитывается по формуле:</p>
+                    <p class="info-text">(средний учебный балл + сумма баллов достижений)/10</p>
+                </div>
+            </div>
+            <div class="test-line">
+                <div class="test">
+                    <img class="test-photo" src="../../../assets/test-1.png" alt="">
+                    <div class="test-text">
+                        <div class="test-description">
+                            <a href="https://forms.gle/w2FT5X1igbYx4cGBA" target="_blank">
+                                Имя Дома Научной Коллаборации НГТУ им. Р.Е. Алексеева</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="test">
+                    <img class="test-photo" src="../../../assets/test-2.png" alt="">
+                    <div class="test-text">
+                        <div class="test-description">
+                            <a href="https://forms.gle/HhQitPu1Mfcoo1sk6" target="_blank"> 
+                                Название аллеи около шестого корпуса НГТУ им. Р.Е. Алексеева</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="test-right">
+                    <img class="test-photo" src="../../../assets/test-3.png" alt="">
+                    <div class="test-text">
+                        <div class="test-description">
+                            <a href="https://forms.gle/Y3omD6XKB8feEv8U9" target="_blank"> 
+                                Мистер ИТС 2022</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </body>
     </div>
 </div>

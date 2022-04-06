@@ -1,6 +1,13 @@
 body {
     // background-color: #EFEFEF;
     padding: 2.5rem 1.5rem;
+    width: 86.25rem;
+    border-right: 1px solid #8F8F8F;
+    height: 100%;
+}
+
+.border {
+    border-right: 1px solid #8F8F8F;
 }
 
 .components {
@@ -16,17 +23,19 @@ body {
 .greetings {
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1.125em;
     line-height: 145%;
     /* or 26px */
 
     color: #000000;
     padding-bottom: 1.5rem;
+    padding-left: 1.1rem;
 }
 
 .cards {
     display: flex;
+    justify-content: center;
 }
 
 .card {
@@ -40,6 +49,17 @@ body {
     padding: 1.5rem;
 }
 
+.card-right {
+    width: 27rem; // в макете 27
+    // height: 17.188rem;
+    
+    border: 1px solid #8F8F8F;
+    box-sizing: border-box;
+    border-radius: 12px;
+    // margin-right: 1.5rem;
+    padding: 1.5rem;
+}
+
 .card-title {
     display: flex;
     padding-bottom: 1.25rem;
@@ -48,7 +68,7 @@ body {
 .card-title p {
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1em;
     line-height: 130%;
     /* identical to box height, or 21px */
