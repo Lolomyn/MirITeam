@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../shared/models/user.model';
 
 @Component({
   selector: 'app-inst-manage',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InstManageComponent implements OnInit {
 
+  user: User;
   constructor() { }
 
   ngOnInit(): void {
+    this.user = JSON.parse(window.localStorage.getItem('user'));
   }
 
   x:any = 0;

@@ -4,7 +4,8 @@
         <app-header></app-header>
         <body>
             <div class="voice">
-                <span class="ball-title">Вес твоего голоса: 1.13</span>
+                <!-- ЗДЕСЬ НАДО ВМЕСТО "12" ПОСТАВИТЬ ПОЛЕ ИЗ БД ДОСТИЖЕНИЙ (СУММА БАЛЛОВ) -->
+                <span class="ball-title">Вес твоего голоса: {{(user[0].avg + 12)/10}}</span>
                 <p (click)="helpInfo()" class="help"></p>
                 <div class="check hidden_info">
                     <p class="info-title">Вес голоса расчитывается по формуле:</p>
@@ -13,31 +14,37 @@
             </div>
             <div class="test-line">
                 <div class="test">
-                    <img class="test-photo" src="../../../assets/test-1.png" alt="">
-                    <div class="test-text">
-                        <div class="test-description">
-                            <a href="https://forms.gle/w2FT5X1igbYx4cGBA" target="_blank">
-                                Имя Дома Научной Коллаборации НГТУ им. Р.Е. Алексеева</a>
+                    <a href="https://forms.gle/w2FT5X1igbYx4cGBA" target="_blank">
+                        <img class="test-photo" src="../../../assets/test-1.png" alt="">
+                        <div class="test-text">
+                            <div class="test-description">
+                                <a href="https://forms.gle/w2FT5X1igbYx4cGBA" target="_blank">
+                                    Имя Дома Научной Коллаборации НГТУ им. Р.Е. Алексеева</a>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="test">
+                    <a href="https://forms.gle/HhQitPu1Mfcoo1sk6" target="_blank"> 
                     <img class="test-photo" src="../../../assets/test-2.png" alt="">
-                    <div class="test-text">
-                        <div class="test-description">
-                            <a href="https://forms.gle/HhQitPu1Mfcoo1sk6" target="_blank"> 
-                                Название аллеи около шестого корпуса НГТУ им. Р.Е. Алексеева</a>
+                        <div class="test-text">
+                            <div class="test-description">
+                                <a href="https://forms.gle/HhQitPu1Mfcoo1sk6" target="_blank"> 
+                                    Название аллеи около шестого корпуса НГТУ им. Р.Е. Алексеева</a>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="test-right">
-                    <img class="test-photo" src="../../../assets/test-3.png" alt="">
-                    <div class="test-text">
-                        <div class="test-description">
-                            <a href="https://forms.gle/Y3omD6XKB8feEv8U9" target="_blank"> 
-                                Мистер ИТС 2022</a>
+                    <a href="https://forms.gle/Y3omD6XKB8feEv8U9" target="_blank">
+                        <img class="test-photo" src="../../../assets/test-3.png" alt="">
+                        <div class="test-text">
+                            <div class="test-description">
+                                <a href="https://forms.gle/Y3omD6XKB8feEv8U9" target="_blank"> 
+                                    Мистер ИТС 2022</a>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </body>
