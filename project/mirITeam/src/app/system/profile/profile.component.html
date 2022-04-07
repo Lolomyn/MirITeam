@@ -3,95 +3,122 @@
     <div class="new-components">
         <app-header></app-header>
         <body>
-            <p class="greetings">Привет, {{user[0].fcs}}!</p>
+            <div class="limit" *ngFor="let User of userr">
+                <p class="greetings" *ngIf="User.id === user[0].id">Привет, {{User.fcs}}!</p>
+            </div>
             <div class="cards">
-                <div class="card">
-                    <div class="card-title">
-                        <p>Основная информация</p>
-                        <a (click)="edit()" class="edit"></a>
+                <div class="limit" *ngFor="let User of userr">
+                    <div class="card" *ngIf="User.id === user[0].id">
+                        <div class="card-title">
+                            <p>Основная информация</p>
+                            <a *ngIf="User!==edituser_main" (click)="editMain(User)" class="edit"></a>
+                            <a *ngIf="User===edituser_main" (click)="updateMain()" class="save"></a>
+                        </div>
+                        <table>
+                            <tr>
+                                <td><p>ФИО</p></td>
+                                <td *ngIf="User!==edituser_main"><p>{{User.fcs}}</p></td>
+                                <td *ngIf="User===edituser_main"><input class="edit_input" [(ngModel)]="User.fcs" (keyup.enter)="updateMain()"></td>
+                            </tr>
+                            <tr>
+                                <td><p>Телефон </p></td>
+                                <td *ngIf="User!==edituser_main"><p>{{User.pnumber}}</p></td>
+                                <td *ngIf="User===edituser_main"><input class="edit_input" [(ngModel)]="User.pnumber" (keyup.enter)="updateMain()"></td>
+                            </tr>
+                            <tr>
+                                <td><p>Email</p></td>
+                                <td *ngIf="User!==edituser_main"><p>{{User.email}}</p></td>
+                                <td *ngIf="User===edituser_main"><input class="edit_input" [(ngModel)]="User.email" (keyup.enter)="updateMain()"></td>
+                            </tr>
+                            <tr>
+                                <td><p>Возраст</p></td>
+                                <td *ngIf="User!==edituser_main"><p>{{User.age}}</p></td>
+                                <td *ngIf="User===edituser_main"><input class="edit_input" [(ngModel)]="User.age" (keyup.enter)="updateMain()"></td>
+                            </tr>
+                            <tr>
+                                <td><p>Пароль </p></td>
+                                <td *ngIf="User!==edituser_main"><p>{{User.password}}</p></td>
+                                <td *ngIf="User===edituser_main"><input class="edit_input" [(ngModel)]="User.password" (keyup.enter)="updateMain()"></td>
+                            </tr>
+                            <tr>
+                                <td class="last"><p>№ студ. билета</p></td>  
+                                <td class="last" *ngIf="User!==edituser_main"><p>{{User.stnumber}}</p></td>
+                                <td class="last" *ngIf="User===edituser_main"><input class="edit_input" [(ngModel)]="User.stnumber" (keyup.enter)="updateMain()"></td>
+                            </tr>
+                        </table>
                     </div>
-                    <table>
-                        <tr>
-                            <td><p>ФИО</p></td>
-                            <td><p>{{user[0].fcs}}</p></td>
-                        </tr>
-                        <tr>
-                            <td><p>Телефон </p></td>
-                            <td><p>{{user[0].pnumber}}</p></td>
-                        </tr>
-                        <tr>
-                            <td><p>Email</p></td>
-                            <td><p>{{user[0].email}}</p></td>
-                        </tr>
-                        <tr>
-                            <td><p>Возраст</p></td>
-                            <td><p>{{user[0].age}}</p></td>
-                        </tr>
-                        <tr>
-                            <td><p>Пароль</p></td>
-                            <td><p>{{user[0].password}}</p></td>
-                        </tr>
-                        <tr>
-                            <td><p>№ студ. билета</p></td>
-                            <td><p>{{user[0].stnumber}}</p></td>
-                        </tr>
-                    </table>
                 </div>
-                <div class="card">
-                    <div class="card-title">
-                        <p>Дополнительная информация</p>
-                        <a (click)="edit()" class="edit"></a>
+                <div class="limit" *ngFor="let User of userr">
+                    <div class="card" *ngIf="User.id === user[0].id">
+                        <div class="card-title">
+                            <p>Дополнительная информация</p>
+                            <a *ngIf="User!==edituser_add" (click)="editAdd(User)" class="edit"></a>
+                            <a *ngIf="User===edituser_add" (click)="updateAdd()" class="save"></a>
+                        </div>
+                        <table>
+                            <tr>
+                                <td><p>ИНН</p></td>
+                                <td *ngIf="User!==edituser_add"><p>{{User.inn}}</p></td>
+                                <td *ngIf="User===edituser_add"><input class="edit_input" [(ngModel)]="User.inn" (keyup.enter)="updateAdd()"></td>
+                            </tr>
+                            <tr>
+                                <td><p>СНИЛС </p></td>
+                                <td *ngIf="User!==edituser_add"><p>{{User.snils}}</p></td>
+                                <td *ngIf="User===edituser_add"><input class="edit_input" [(ngModel)]="User.snils" (keyup.enter)="updateAdd()"></td>
+                            </tr>
+                            <tr>
+                                <td><p>Id Вконтакте</p></td>
+                                <td *ngIf="User!==edituser_add"><p>{{User.vk}}</p></td>
+                                <td *ngIf="User===edituser_add"><input class="edit_input" [(ngModel)]="User.vk" (keyup.enter)="updateAdd()"></td>
+                            </tr>
+                            <tr>
+                                <td><p>Никнейм Телеграм</p></td>
+                                <td *ngIf="User!==edituser_add"><p>{{User.telegram}}</p></td>
+                                <td *ngIf="User===edituser_add"><input class="edit_input" [(ngModel)]="User.telegram" (keyup.enter)="updateAdd()"></td>
+                            </tr>
+                            <tr>
+                                <td class="last"><p>Контактные данные </p></td>
+                                <td class="last" *ngIf="User!==edituser_add"><p>{{User.comment}}</p></td>
+                                <td class="last" *ngIf="User===edituser_add"><textarea class="edit_input" [(ngModel)]="User.comment" (keyup.enter)="updateAdd()"></textarea></td>
+                            </tr>
+                        </table>
                     </div>
-                    <table>
-                        <tr>
-                            <td><p>ИНН</p></td>
-                            <td><p>{{user[0].inn}}</p></td>
-                        </tr>
-                        <tr>
-                            <td><p>СНИЛС </p></td>
-                            <td><p>{{user[0].snils}}</p></td>
-                        </tr>
-                        <tr>
-                            <td><p>Id Вконтакте</p></td>
-                            <td><p>{{user[0].vk}}</p></td>
-                        </tr>
-                        <tr>
-                            <td><p>Никнейм Телеграм</p></td>
-                            <td><p>{{user[0].telegram}}</p></td>
-                        </tr>
-                        <tr>
-                            <td><p>Контактные данные</p></td>
-                            <td><p>{{user[0].comment}}</p></td>
-                        </tr>
-                    </table>
                 </div>
-                <div class="card-right">
-                    <div class="card-title">
-                        <p>Учебная информация</p>
-                        <a (click)="edit()" class="edit"></a>
+                <div class="limit" *ngFor="let User of userr">
+                    <div class="card-right" *ngIf="User.id === user[0].id">
+                        <div class="card-title">
+                            <p>Учебная информация</p>
+                            <a *ngIf="User!==edituser_study" (click)="editStudy(User)" class="edit"></a>
+                            <a *ngIf="User===edituser_study" (click)="updateStudy()" class="save"></a>
+                        </div>
+                        <table>
+                            <tr>
+                                <td><p>Институт</p></td>
+                                <td *ngIf="User!==edituser_study"><p>{{User.institute}}</p></td>
+                                <td *ngIf="User===edituser_study"><input class="edit_input" [(ngModel)]="User.institute" (keyup.enter)="updateStudy()"></td>
+                            </tr>
+                            <tr>
+                                <td><p>Группа </p></td>
+                                <td *ngIf="User!==edituser_study"><p>{{User.groupID}}</p></td>
+                                <td *ngIf="User===edituser_study"><input class="edit_input" [(ngModel)]="User.groupID" (keyup.enter)="updateStudy()"></td>
+                            </tr>
+                            <tr>
+                                <td><p>Курс</p></td>
+                                <td *ngIf="User!==edituser_study"><p>{{User.course}}</p></td>
+                                <td *ngIf="User===edituser_study"><input class="edit_input" [(ngModel)]="User.course" (keyup.enter)="updateStudy()"></td>
+                            </tr>
+                            <tr>
+                                <td><p>Бухгалтерский шифр</p></td>
+                                <td *ngIf="User!==edituser_study"><p>{{User.bshifr}}</p></td>
+                                <td *ngIf="User===edituser_study"><input class="edit_input" [(ngModel)]="User.bshifr" (keyup.enter)="updateStudy()"></td>
+                            </tr>
+                            <tr>
+                                <td class="last"><p>Средний балл </p></td>
+                                <td class="last" *ngIf="User!==edituser_study"><p>{{User.avg}}</p></td>
+                                <td class="last" *ngIf="User===edituser_study"><input class="edit_input" [(ngModel)]="User.avg" (keyup.enter)="updateStudy()"></td>
+                            </tr>
+                        </table>
                     </div>
-                    <table>
-                        <tr>
-                            <td><p>Институт</p></td>
-                            <td><p>{{user[0].institute}}</p></td>
-                        </tr>
-                        <tr>
-                            <td><p>Группа</p></td>
-                            <td><p>{{user[0].groupID}}</p></td>
-                        </tr>
-                        <tr>
-                            <td><p>Курс</p></td>
-                            <td><p>{{user[0].course}}</p></td>
-                        </tr>
-                        <tr>
-                            <td><p>Бухгалтерский шифр</p></td>
-                            <td><p>{{user[0].bshifr}}</p></td>
-                        </tr>
-                        <tr>
-                            <td><p>Средний балл</p></td>
-                            <td><p>{{user[0].avg}}</p></td>
-                        </tr>
-                    </table>
                 </div>
             </div>
         </body>

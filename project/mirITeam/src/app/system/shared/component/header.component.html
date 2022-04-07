@@ -9,7 +9,9 @@
             <p class="title" *ngIf="url == inst_manage">Управление ВУЗ’ом</p>
             <p class="title" *ngIf="url == self_development">Саморазвитие</p>
         </div>
-        <p class="username">{{user[0].fcs}}</p>
+        <div class="username" *ngFor="let User of userr">
+            <p *ngIf="User.id === user[0].id">{{User.fcs}}</p>
+        </div>
     <!-- </header> -->
     <div class="container">
         <img src="../../../../assets/log-out.svg" (click)="onLogout()" class="onlogout">

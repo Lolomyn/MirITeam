@@ -5,11 +5,11 @@
         <body>
             <div class="search">
                 <div class="search-input">
-                    <input placeholder="Поиск" id="myInput">
+                    <input placeholder="Поиск" id="myInput" (keyup)="myFunction()">
                 </div>
             </div>
             <div class="myRating">
-                <table border="1" class="no-double myTable1" id="myTable_list" >
+                <table border="1" class="no-double myTable1" id="myTable_list">
                     <tr>
                         <th class="number">№</th>
                         <th class="fcs">ФИО</th>

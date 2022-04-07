@@ -11,6 +11,7 @@ import { StudyingService } from '../services/studying.service';
 export class HeaderComponent implements OnInit {
   date: Date = new Date();
   user: User;
+  userr: User[] = [];
   constructor (
     private authService: AuthService,
     private router: Router,
@@ -23,7 +24,13 @@ export class HeaderComponent implements OnInit {
     // this.ShowMenu();
     // this.ShoMenu2();
     this.user = JSON.parse(window.localStorage.getItem('user'));
+    this.getUser();
     // alert(location.href);
+  }
+
+  getUser(): void {
+    this.studyingService.getUser()
+      .subscribe(user => (this.userr = user));
   }
 
   onLogout() {

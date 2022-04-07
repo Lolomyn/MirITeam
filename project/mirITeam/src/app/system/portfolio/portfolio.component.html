@@ -66,14 +66,15 @@
                             <td>{{User.fcs}}</td>
                             <td>{{User.fcs}}</td>
                             <td>5</td>
-                            <td><p (click)="edit()" class="edit"></p></td>   
+                            <td><p class="edit"></p></td>   
                         </tr>
                         
                     </table>
                 </div>
             </div>
             <div class="add">
-                <form action="">
+                <form [formGroup]="form" (ngSubmit)="add(name.value, status.value, organizator.value, stepen.value, date.value);
+                name.value = ''; organizator.value = ''; date.value = ''">
                     <div class="add-title">
                         <div class="title">
                             <p>Добавление достижения</p>
@@ -90,39 +91,39 @@
                     </div>
                     <div class="input-field">
                         <p class="mini-title">Наименование олимпиады</p>
-                        <input type="text" placeholder="Всероссийская олимпиады школьников">
+                        <input type="text" formControlName="name" class="name" placeholder="Всероссийская олимпиады школьников" #name>
                     </div>
                     <div class="input-field">
                         <p class="mini-title">Статус</p>
-                        <select name="" id="">
-                            <option selected value="Победитель">Муниципальный</option>
-                            <option value="Призёр">Областной</option>
-                            <option value="Участник">Всероссийский</option>
+                        <select name="" id="status" class="status" #status>
+                            <option selected value="Муниципальный">Муниципальный</option>
+                            <option value="Областной">Областной</option>
+                            <option value="Всероссийский">Всероссийский</option>
                         </select>
                     </div>
                     <div class="input-field">
                         <p class="mini-title">Организатор</p>
-                        <input type="text" placeholder="Школа №54">
+                        <input type="text" formControlName="organizator" class="organizator" placeholder="Школа №54" #organizator>
                     </div>
                     <div class="input-field">
                         <p class="mini-title">Степень</p>
-                        <select name="" id="">
+                        <select name="" id="stepen" class="stepen" #stepen>
                             <option selected value="Участник">Участник</option>
                             <option value="Дипломант">Дипломант</option>
                             <option value="Призёр">Призёр</option>
-                            <option  value="Победитель">Победитель</option>
+                            <option value="Победитель">Победитель</option>
                         </select>
                     </div>
                     <div class="input-field">
                         <p class="mini-title">Дата получения</p>
                         <div class="calendar">
-                            <input type="date">
+                            <input type="date" formControlName="date" class="date" #date>
                             <!-- <p class="calend"></p> -->
                         </div>
                     </div>
-                    <div class="input-field-btn">
-                        <p (click)="add()" class="add-portfolio-btn">Добавить</p>
-                    </div>
+                    <!-- <div class="input-field-btn"> -->
+                        <button type="submit" [disabled]="form.invalid" class="input-field-btn">Добавить</button>
+                    <!-- </div> -->
                 </form>
             </div>
         </body>

@@ -64,7 +64,7 @@ body {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 1em;
+    font-size: 1rem;
     line-height: 145%;
     /* or 23px */
     color: #565656;
@@ -140,7 +140,7 @@ tr th input:hover {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
-    font-size: 1em;
+    font-size: 1rem;
     line-height: 145%;
     /* or 23px */
     color: #000000;
@@ -151,7 +151,7 @@ tr th input:hover {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
-    font-size: 0.875em;
+    font-size: 0.875rem;
     line-height: 145%;
     /* or 20px */
     color: #000000;
@@ -162,7 +162,7 @@ tr th input:hover {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 0.875em;
+    font-size: 0.875rem;
     line-height: 145%;
     color: #000000;
     padding-bottom: 0.25rem;
@@ -200,7 +200,7 @@ table tr th {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
-    font-size: 0.875em;
+    font-size: 0.875rem;
     line-height: 145%;
 
     color: #000000;
@@ -217,7 +217,7 @@ table tr td {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 1em;
+    font-size: 1rem;
     line-height: 145%;
     /* or 23px */
     color: #000000;
@@ -253,7 +253,7 @@ table tr td {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
-    font-size: 1em;
+    font-size: 1rem;
     line-height: 130%;
     /* identical to box height, or 21px */
     color: #000000;
@@ -266,7 +266,7 @@ table tr td {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 0.875em;
+    font-size: 0.875rem;
     line-height: 145%;
     /* or 20px */
 
@@ -308,7 +308,7 @@ table tr td {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 0.563em;
+    font-size: 0.563rem;
     line-height: 145%;
     color: #565656;
 }
@@ -379,24 +379,65 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 0.875em;
+    font-size: 0.875rem;
     line-height: 145%;
     /* or 20px */
     color: black;
     border: 1px solid #8F8F8F;
-    border-top: none    ;
+    border-top: none;
+    text-align: center;
+    width: 100%;
 }
 
 .input-field-btn:hover {
     background-color: #0069B4;
-    color: #FFFFFF;
+    // color: #FFFFFF;
     border: none;
     cursor: pointer;
+}
+
+.input-field-btn:disabled {
+    color: #565656;
+}
+.input-field-btn:enabled {
+    color: black;
 }
 
 .add-portfolio-btn:hover {
     cursor: pointer;
 }
+
+// button:enabled {
+//     color: black;
+//     border: none;
+//     background: transparent;
+
+//     font-family: 'Inter';
+//     font-style: normal;
+//     font-weight: 400;
+//     font-size: 0.875rem;
+//     line-height: 145%;
+//     /* or 20px */
+//     color: #000000;
+// }
+
+// button:disabled {
+//     font-family: 'Inter';
+//     font-style: normal;
+//     font-weight: 400;
+//     font-size: 0.875rem;
+//     line-height: 145%;
+//     /* or 20px */
+//     color: #565656;
+
+//     border: none;
+//     background: transparent;
+// }
+
+button:enabled:hover {
+    color: #FFFFFF;
+}
+
 
 /* прячем input checkbox */
 input[type="checkbox"] {

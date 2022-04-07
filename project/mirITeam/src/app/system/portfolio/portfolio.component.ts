@@ -3,6 +3,7 @@ import { User } from '../shared/models/user.model';
 import { AddService } from '../shared/services/add.service';
 import { StudyingService } from '../shared/services/studying.service';
 import * as XLSX from 'xlsx';
+import { AnyForUntypedForms, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-portfolio',
@@ -15,6 +16,10 @@ export class PortfolioComponent implements OnInit {
   shortLink: string = "";
   user: User;
   userr: User[] = [];
+
+  form: FormGroup;
+
+  // edituser: User | undefined;
   
   constructor(
     private addService: AddService,
@@ -23,9 +28,13 @@ export class PortfolioComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser();
+    this.form = new FormGroup({ 
+      name: new FormControl(null, [Validators.required]),
+      organizator: new FormControl(null, [Validators.required]),
+      date: new FormControl(null, [Validators.required])
+    });
   }
-
-    
+  
   getUser(): void {
     this.studyingService.getUser()
       .subscribe(user => (this.userr = user));
@@ -62,10 +71,6 @@ export class PortfolioComponent implements OnInit {
     alert("Добавить выгрузку в Excel");
   }
 
-  edit() {
-    alert("Добавить редактирование");
-  }
-
   x:any = 0;
   helpInfo() {
     let hidden_info = document.getElementsByClassName('check')[0] as HTMLElement;
@@ -81,8 +86,39 @@ export class PortfolioComponent implements OnInit {
     }
   }
 
-  add() {
-    alert("Добавить добавление в бд");
+  add(name: any, status: any, organizator:any, stepen: any, date:any) {
+    var ball = 0;
+    if (status == "Муниципальный") {
+      if (stepen == "Победитель") ball = 3;
+      else if (stepen == "Призёр") ball = 2;
+      else if (stepen == "Участник") ball = 1;
+      else if (stepen == "Дипломант") ball = 0.5;
+    } else if (status == "Областной") {
+      if (stepen == "Победитель") ball = 4;
+      else if (stepen == "Призёр") ball = 3;
+      else if (stepen == "Участник") ball = 2;
+      else if (stepen == "Дипломант") ball = 1;
+    } else if (status == "Всероссийский") {
+      if (stepen == "Победитель") ball = 5;
+      else if (stepen == "Призёр") ball = 2;
+      else if (stepen == "Участник") ball = 3;
+      else if (stepen == "Дипломант") ball = 2;
+    }
+
+    alert("Name: " + name + ", status: " + status + ", organizator: " + organizator + ", stepen: " + stepen + ", date: " + date + ", ball: " + ball);
+
+    // ВСТАВИТЬ СЮДА БД ДОСТИЖЕНИЙ
+    // this.addService.User({login, password, type, first_login, during, comment} as User)
+    //   .subscribe(user => {
+    //     this.user.push(user);
+    //   });
+
+    ball = 0; 
+
+    alert("Достижение добавлено!");
+    setTimeout(function(){
+      location.reload();
+    }, 2000);
   }
 
   myFunction() {
