@@ -39,6 +39,6 @@ constructor(
       
     // Make http post request over api
     // with formData as req
-    return this.http.post('http://localhost:8080/upload', formData)
+    return this.http.post('http://localhost:8080/api/students/achievements/upload', formData)
 }
 }

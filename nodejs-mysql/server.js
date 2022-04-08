@@ -15,7 +15,7 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 
-const initRoutes = require("./app/routes/file.routes");
+// const initRoutes = require("./app/routes/file.routes");
 const db = require("./app/models");
 
 
@@ -26,7 +26,7 @@ db.sequelize.sync();
 // app.use(fileupload({}))
 // app.use("/api/files", fileRouter)  //было до 1.04
 // parse requests of content-type - application/json
-initRoutes(app);
+// initRoutes(app);
 app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));

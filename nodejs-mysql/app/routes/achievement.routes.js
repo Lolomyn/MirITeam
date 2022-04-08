@@ -1,10 +1,13 @@
 module.exports = app => {
     const achievements = require("../controller/achievement.controller.js");
+    const uploadController = require("../controller/upload");
+    const upload = require("../middleware/upload");
   
     var router = require("express").Router();
   
     // Create a new User
     router.post("/", achievements.create);
+    router.post("/upload", upload.single("file"), uploadController.uploadFiles);
 
     // router.post("/upload", upload.single("file"), uploadController.uploadFiles);
     
