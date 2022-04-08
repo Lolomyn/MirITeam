@@ -145,6 +145,9 @@
                 </div>
                 <div class="form-group" id="avg" [ngClass]="{'has-error': form.get('avg').invalid && form.get('avg').touched}">
                     <input autocomplete="off" type="text" class="avg" placeholder = "Средний балл за все года обучения" formControlName = "avg" #avg>
+                    <span class="form-avg-span" *ngIf="form.get('avg').invalid && form.get('avg').touched">
+                        <span *ngIf="form.get('avg')['errors']['pattern']">Примеры записи: [4,2] [3.8]</span>
+                    </span>
                 </div>
                 <div class="form-group" id="sign-up-button">
                     <button type="button" (click)="toNextStep(4)" class="sign-up-button" [disabled]="form.invalid">Следующий шаг
