@@ -39,7 +39,8 @@ export class PortfolioComponent implements OnInit {
     this.form = new FormGroup({ 
       name: new FormControl(null, [Validators.required]),
       organizator: new FormControl(null, [Validators.required]),
-      date: new FormControl(null, [Validators.required])
+      date: new FormControl(null, [Validators.required]),
+      file: new FormControl(null, [Validators.required])
     });
   }
   
@@ -74,14 +75,6 @@ export class PortfolioComponent implements OnInit {
     }
   }
 
-  delete() {
-    alert("Добавить удаление");
-  }
-
-  loadToExcel() {
-    alert("Добавить выгрузку в Excel");
-  }
-
   x:any = 0;
   helpInfo() {
     let hidden_info = document.getElementsByClassName('check')[0] as HTMLElement;
@@ -97,8 +90,9 @@ export class PortfolioComponent implements OnInit {
     }
   }
 
-  add(name: any, status: any, organizator:any, stepen: any, date:any) {
+  add(name: any, status: any, organizator:any, stepen: any, date:any, file:any) {
     var ball = 0;
+    var fcs = "this.user[0].fcs.toString";
     if (status == "Муниципальный") {
       if (stepen == "Победитель") ball = 3;
       else if (stepen == "Призёр") ball = 2;
@@ -111,25 +105,25 @@ export class PortfolioComponent implements OnInit {
       else if (stepen == "Дипломант") ball = 1;
     } else if (status == "Всероссийский") {
       if (stepen == "Победитель") ball = 5;
-      else if (stepen == "Призёр") ball = 2;
+      else if (stepen == "Призёр") ball = 4;
       else if (stepen == "Участник") ball = 3;
       else if (stepen == "Дипломант") ball = 2;
     }
 
-    alert("Name: " + name + ", status: " + status + ", organizator: " + organizator + ", stepen: " + stepen + ", date: " + date + ", ball: " + ball);
+    // alert("Name: " + name + ", status: " + status + ", organizator: " + organizator + ", stepen: " + stepen + ", date: " + date + ", ball: " + ball);
 
     // ВСТАВИТЬ СЮДА БД ДОСТИЖЕНИЙ
-    // this.addService.User({login, password, type, first_login, during, comment} as User)
-    //   .subscribe(user => {
-    //     this.user.push(user);
-    //   });
+    this.addService.Achievement({fcs, name, status, organizator, stepen, ball, date, file} as Achievement)
+      .subscribe(achievement => {
+        this.achievement.push(achievement);
+      });
 
     ball = 0; 
 
     alert("Достижение добавлено!");
-    setTimeout(function(){
-      location.reload();
-    }, 2000);
+    // setTimeout(function(){
+    //   location.reload();
+    // }, 2000);
   }
 
   myFunction() {

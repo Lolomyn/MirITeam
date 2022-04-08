@@ -76,15 +76,43 @@ body {
     width: 5.625rem;
 }
 
-.icon-blue {
+.icon-codesandbox {
     background-image: url(../../../assets/codesandbox.svg);
     width: 3.5rem;
     height: 3.5rem;
     // border-right: 1px solid #0069B4;
 }
 
-.icon-gray {
-    background-image: url(../../../assets/codesandbox-2.svg);
+.icon-star {
+    background-image: url(../../../assets/star.svg);
+    width: 3.5rem;
+    height: 3.5rem;
+    // border-right: 1px solid #0069B4;
+}
+
+.icon-compass {
+    background-image: url(../../../assets/compass.svg);
+    width: 3.5rem;
+    height: 3.5rem;
+    // border-right: 1px solid #0069B4;
+}
+
+
+
+.icon-bike {
+    background-image: url(../../../assets/bike.svg);
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.icon-check-circle {
+    background-image: url(../../../assets/check-circle.svg);
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.icon-award {
+    background-image: url(../../../assets/award.svg);
     width: 3.5rem;
     height: 3.5rem;
 }

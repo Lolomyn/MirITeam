@@ -60,12 +60,12 @@
                                 <input type="checkbox" id="checkbox-id" (change)="checkIfAllSelected();" [(ngModel)]="Achievement.isChecked">
                                 <!-- <label for="checkbox-id"></label> -->
                             </td>
-                            <td>{{Achievement.fcs}}</td>
                             <td>{{Achievement.name}}</td>
                             <td>{{Achievement.status}}</td>
                             <td>{{Achievement.organizator}}</td>
                             <td>{{Achievement.stepen}}</td>
                             <td>{{Achievement.date}}</td>
+                            <td>{{Achievement.ball}}</td>
                             <td><p class="edit"></p></td>   
                         </tr>
                         
@@ -73,7 +73,7 @@
                 </div>
             </div>
             <div class="add">
-                <form [formGroup]="form" (ngSubmit)="add(name.value, status.value, organizator.value, stepen.value, date.value);
+                <form [formGroup]="form" (ngSubmit)="add(name.value, status.value, organizator.value, stepen.value, date.value, file.value);
                 name.value = ''; organizator.value = ''; date.value = ''">
                     <div class="add-title">
                         <div class="title">
@@ -82,7 +82,7 @@
                     </div>
                     <div class="load-gramota">
                         <div class="add-button">
-                            <input class="form-control" type="file" (change)="onChange($event)">
+                            <input class="form-control" formControlName="file" type="file" (change)="onChange($event)" #file>
                             <!-- <p>Добавить фотографию/скан</p> -->
                         </div>
                         <div class="load" (click)="onUpload()">

@@ -7,5 +7,7 @@ export interface Achievement {
     stepen: string,
     ball: number,
     date: Date,
+    file: Blob,
+    isChecked?: boolean,
     id?: number
 }

@@ -5,6 +5,7 @@ import {User} from '../models/user.model';
 import {HttpClient} from '@angular/common/http';
 import { HttpErrorHandler } from 'src/http-error-handler.service';
 import { environment } from 'src/environments/environment';
+import { Achievement } from '../models/achievement.model';
 
 @Injectable()
 export class AddService {
@@ -19,6 +20,15 @@ constructor(
       catchError(this.httperrorhandler.handleError<User>('addUser'))
     );
   }
+
+  Achievement(achievement: Achievement): Observable<Achievement> {
+    return this.http.post<Achievement>(environment.apiHost+"/achievements", achievement).pipe(
+      tap((newAchievement: Achievement) => this.httperrorhandler.log(`added achievement w/ id=${newAchievement.id}`)),
+      catchError(this.httperrorhandler.handleError<Achievement>('addAchievement'))
+    );
+  }
+
+
   upload(file):Observable<any> {
   
     // Create form data
