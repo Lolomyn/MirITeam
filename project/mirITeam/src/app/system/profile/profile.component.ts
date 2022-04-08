@@ -58,6 +58,7 @@ export class ProfileComponent implements OnInit {
       }
     });
     this.edituser_main = undefined;
+    window.localStorage.setItem('user', JSON.stringify(this.user));
   }
 
   updateAdd() {
@@ -70,6 +71,7 @@ export class ProfileComponent implements OnInit {
       }
     });
     this.edituser_add = undefined;
+    window.localStorage.setItem('user', JSON.stringify(this.user));
   }
 
   updateStudy() {
@@ -82,6 +84,7 @@ export class ProfileComponent implements OnInit {
       }
     });
     this.edituser_study = undefined;
+    window.localStorage.setItem('user', JSON.stringify(this.user));
   }
 
 }

@@ -10,6 +10,10 @@ body {
     border-right: 1px solid #8F8F8F;
 }
 
+.hidden {
+    display: none;
+}
+
 .components {
     display: flex;
 }
@@ -147,7 +151,7 @@ a {
     border-radius: 12px;
 
     margin-top: 8rem;
-    margin-left: 15rem;
+    margin-left: 13rem;
 
     padding: 1.25rem;
     z-index: 2;

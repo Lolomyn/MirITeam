@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Achievement } from '../shared/models/achievement.model';
 import { User } from '../shared/models/user.model';
 import { AddService } from '../shared/services/add.service';
 import { StudyingService } from '../shared/services/studying.service';
@@ -11,6 +12,7 @@ import { StudyingService } from '../shared/services/studying.service';
 export class RatingComponent implements OnInit {
 
   userr: User[] = [];
+  achievement: Achievement[] = [];
 
   constructor(
     private addService: AddService,
@@ -19,6 +21,12 @@ export class RatingComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser();
+    this.getAchievement();
+  }
+
+  getAchievement(): void {
+    this.studyingService.getAchievement()
+      .subscribe(achievement => (this.achievement = achievement));
   }
 
   getUser(): void {
@@ -46,14 +54,15 @@ export class RatingComponent implements OnInit {
     }
   }
 
-  getTotal() {
+  getTotal(index) {
     let total = 0;
-    for (var i = 0; i < this.userr.length; i++) {
-        if (this.userr[i].avg) {
-            total += Number(this.userr[i].avg);
-        }
+    console.log(this.userr[1].fcs);
+    for (var i = 0; i < this.achievement.length; i++) {
+      if (this.achievement[i].ball && this.achievement[i].fcs == this.userr[index].fcs) {
+          total += Number(this.achievement[i].ball);
+      }
     }
-    return total;
+    return total + Number(this.userr[index].avg);
   }
   
 

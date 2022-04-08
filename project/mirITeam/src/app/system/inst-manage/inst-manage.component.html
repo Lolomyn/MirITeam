@@ -3,10 +3,11 @@
     <div class="new-components">
         <app-header></app-header>
         <body>
+            <div class="hidden">{{user[0].fcs}}</div>
             <div class="voice">
                 <!-- ЗДЕСЬ НАДО ВМЕСТО "12" ПОСТАВИТЬ ПОЛЕ ИЗ БД ДОСТИЖЕНИЙ (СУММА БАЛЛОВ) -->
-                <div class="limit" *ngFor="let User of userr">
-                    <span *ngIf="User.id === user[0].id" class="ball-title">Вес твоего голоса: {{getVoiceWeight()}}</span>
+                <div class="limit" *ngFor="let User of userr; let i = index">
+                    <span *ngIf="User.id === user[0].id" class="ball-title">Вес твоего голоса: {{getVoiceWeight(i)}}</span>
                 </div>
                 <p (click)="helpInfo()" class="help"></p>
                 <div class="check hidden_info">

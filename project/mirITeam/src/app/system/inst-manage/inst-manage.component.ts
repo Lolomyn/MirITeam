@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Achievement } from '../shared/models/achievement.model';
 import { User } from '../shared/models/user.model';
 import { AddService } from '../shared/services/add.service';
 import { StudyingService } from '../shared/services/studying.service';
@@ -12,6 +13,8 @@ export class InstManageComponent implements OnInit {
 
   user: User;
   userr: User[] = [];
+
+  achievement: Achievement[] = [];
   constructor(
     private addService: AddService,
     private studyingService: StudyingService
@@ -19,12 +22,18 @@ export class InstManageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser();
+    this.getAchievement();
     this.user = JSON.parse(window.localStorage.getItem('user'));
   }
 
   getUser(): void {
     this.studyingService.getUser()
       .subscribe(user => (this.userr = user));
+  }
+
+  getAchievement(): void {
+    this.studyingService.getAchievement()
+      .subscribe(achievement => (this.achievement = achievement));
   }
 
   x:any = 0;
@@ -42,14 +51,12 @@ export class InstManageComponent implements OnInit {
     }
   }
 
-
-  // Это высчитывается только у одного юзера
-  // подставить сюда БД достижений (параметр балла каждого достижения у одного юзера)
-  getTotal() {
+  getTotal(index) {
     let total = 0;
-    for (var i = 0; i < this.userr.length; i++) {
-        if (this.userr[i].avg) {
-            total += Number(this.userr[i].avg);
+    let username = document.getElementsByClassName('hidden')[0] as HTMLElement;
+    for (var i = 0; i < this.achievement.length; i++) {
+        if (this.achievement[i].ball && this.achievement[i].fcs == this.userr[index].fcs) {
+            total += Number(this.achievement[i].ball);
         }
     }
     return total;
@@ -59,8 +66,8 @@ export class InstManageComponent implements OnInit {
     return Number(this.user[0].avg);
   }
 
-  getVoiceWeight() {
-    return ((this.returnNumber() + this.getTotal())/10).toFixed(2);;
+  getVoiceWeight(index) {
+    return ((this.returnNumber() + this.getTotal(index))/10).toFixed(2);;
   }
 
 }

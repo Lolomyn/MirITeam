@@ -42,6 +42,7 @@ export class PortfolioComponent implements OnInit {
       date: new FormControl(null, [Validators.required]),
       file: new FormControl(null, [Validators.required])
     });
+    this.user = JSON.parse(window.localStorage.getItem('user'));
   }
   
   getUser(): void {
@@ -92,7 +93,7 @@ export class PortfolioComponent implements OnInit {
 
   add(name: any, status: any, organizator:any, stepen: any, date:any, file:any) {
     var ball = 0;
-    var fcs = "this.user[0].fcs.toString";
+    var fcs = (document.getElementsByClassName('hidden')[0] as HTMLElement).innerHTML;
     if (status == "Муниципальный") {
       if (stepen == "Победитель") ball = 3;
       else if (stepen == "Призёр") ball = 2;
@@ -112,7 +113,6 @@ export class PortfolioComponent implements OnInit {
 
     // alert("Name: " + name + ", status: " + status + ", organizator: " + organizator + ", stepen: " + stepen + ", date: " + date + ", ball: " + ball);
 
-    // ВСТАВИТЬ СЮДА БД ДОСТИЖЕНИЙ
     this.addService.Achievement({fcs, name, status, organizator, stepen, ball, date, file} as Achievement)
       .subscribe(achievement => {
         this.achievement.push(achievement);
@@ -121,9 +121,9 @@ export class PortfolioComponent implements OnInit {
     ball = 0; 
 
     alert("Достижение добавлено!");
-    // setTimeout(function(){
-    //   location.reload();
-    // }, 2000);
+    setTimeout(function(){
+      location.reload();
+    }, 2000);
   }
 
   myFunction() {
@@ -169,7 +169,7 @@ export class PortfolioComponent implements OnInit {
       const result = confirm("Вы точно хотите удалить выбранных пользователей?");
       if (result) {
         this.checkedIDs = []
-        this.userr.forEach((value, index) => {
+        this.achievement.forEach((value, index) => {
           if (value.isChecked) {
             // value.id_ = value.id;
             // this.usersService.createNewUser_a(value)
@@ -177,7 +177,7 @@ export class PortfolioComponent implements OnInit {
             //   this.checkedIDs.push(userr);
             // });
 
-            this.userr = this.userr.filter(u => u !== value);
+            this.achievement = this.achievement.filter(u => u !== value);
             this.usersService.deleteUserById(value.id).subscribe();
           }
         });
@@ -190,16 +190,16 @@ export class PortfolioComponent implements OnInit {
   }
 
   checkIfAllSelected() {
-    this.selectedAll = this.userr.every(function(item2:any) {
+    this.selectedAll = this.achievement.every(function(item2:any) {
         return this.item2.isChecked == true;
       })
   }
 
   checkAllCheckBox(ev: any) { // Angular 13
-    this.userr.forEach(x => x.isChecked = ev.target.checked)
+    this.achievement.forEach(x => x.isChecked = ev.target.checked)
   }
 
   isAllCheckBoxChecked() {
-    return this.userr.every(us => us.isChecked);
+    return this.achievement.every(us => us.isChecked);
   }
 }
