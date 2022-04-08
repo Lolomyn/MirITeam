@@ -55,17 +55,17 @@
                             <th></th>
                         </tr>
                         <!-- Заменить на БД достижений -->
-                        <tr *ngFor="let User of userr" class="td">
+                        <tr *ngFor="let Achievement of achievement" class="td">
                             <td class="checker">
-                                <input type="checkbox" id="checkbox-id" (change)="checkIfAllSelected();" [(ngModel)]="User.isChecked">
+                                <input type="checkbox" id="checkbox-id" (change)="checkIfAllSelected();" [(ngModel)]="Achievement.isChecked">
                                 <!-- <label for="checkbox-id"></label> -->
                             </td>
-                            <td>{{User.fcs}}</td>
-                            <td>{{User.age}}</td>
-                            <td>{{User.pnumber}}</td>
-                            <td>{{User.stnumber}}</td>
-                            <td>{{User.groupID}}</td>
-                            <td>{{User.avg}}</td>
+                            <td>{{Achievement.fcs}}</td>
+                            <td>{{Achievement.name}}</td>
+                            <td>{{Achievement.status}}</td>
+                            <td>{{Achievement.organizator}}</td>
+                            <td>{{Achievement.stepen}}</td>
+                            <td>{{Achievement.date}}</td>
                             <td><p class="edit"></p></td>   
                         </tr>
                         

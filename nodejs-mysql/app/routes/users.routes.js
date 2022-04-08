@@ -5,6 +5,8 @@ module.exports = app => {
   
     // Create a new User
     router.post("/", users.create);
+
+    // router.post("/upload", upload.single("file"), uploadController.uploadFiles);
     
   
     // Retrieve all Users

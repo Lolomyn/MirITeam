@@ -5,6 +5,7 @@ import { StudyingService } from '../shared/services/studying.service';
 import * as XLSX from 'xlsx';
 import { AnyForUntypedForms, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from '../shared/services/users.service';
+import { Achievement } from '../shared/models/achievement.model';
 
 @Component({
   selector: 'app-portfolio',
@@ -17,6 +18,7 @@ export class PortfolioComponent implements OnInit {
   shortLink: string = "";
   user: User;
   userr: User[] = [];
+  achievement: Achievement[] = [];
 
   checkedIDs = [];
   selectedAll: any;
@@ -33,6 +35,7 @@ export class PortfolioComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser();
+    this.getAchievement();
     this.form = new FormGroup({ 
       name: new FormControl(null, [Validators.required]),
       organizator: new FormControl(null, [Validators.required]),
@@ -44,7 +47,10 @@ export class PortfolioComponent implements OnInit {
     this.studyingService.getUser()
       .subscribe(user => (this.userr = user));
   }
-
+  getAchievement(): void {
+    this.studyingService.getAchievement()
+      .subscribe(achievement => (this.achievement = achievement));
+  }
   onChange(event) {
     this.file = event.target.files[0];
   }

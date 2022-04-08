@@ -5,6 +5,7 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
 import {User} from '../models/user.model';
+import { Achievement } from '../models/achievement.model';
 // import {Http, Response} from '@angular/http';
 // import {ThemesModel} from '../models/themes.model';
 import { HttpErrorHandler } from 'src/http-error-handler.service';
@@ -21,7 +22,12 @@ export class StudyingService {
       catchError(this.httperrorhandler.handleError('getUsers', []))
     );
   }
-
+  getAchievement(): Observable<Achievement[]> {
+    return this.http.get<Achievement[]>(environment.apiHost + "/achievements")
+    .pipe(
+      catchError(this.httperrorhandler.handleError('getAchievements', []))
+    );
+  }
 
   getUserById(id: number): Observable<User> {
     const url = `${environment.apiHost}/${id}`;
