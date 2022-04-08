@@ -195,33 +195,39 @@ table {
     width: 100%;
 }
 
-table tr th {
-    padding: 1.063rem 1.125rem;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 0.875rem;
-    line-height: 145%;
-
-    color: #000000;
-    text-align: left;
-}
-
 th input {
     width: 1rem;
     height: 1rem;
 }
 
-table tr td {
+// table tr td {
+//     padding: 1.063rem 1.125rem;
+//     font-family: 'Inter';
+//     font-style: normal;
+//     font-weight: 400;
+//     font-size: 1rem;
+//     line-height: 145%;
+//     /* or 23px */
+//     color: #000000;
+//     text-align: left;
+// }
+
+td {
     padding: 1.063rem 1.125rem;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 145%;
-    /* or 23px */
-    color: #000000;
-    text-align: left;
+}
+
+.th {
+    font-weight: 600;
+}
+
+.checker {
+    text-align: center;
+}
+
+#checkbox-id {
+    width: 1rem;
+    height: 1rem;
+
 }
 
 
@@ -439,55 +445,55 @@ button:enabled:hover {
 }
 
 
-/* прячем input checkbox */
-input[type="checkbox"] {
-    display: none;
-}
+// /* прячем input checkbox */
+// input[type="checkbox"] {
+//     display: none;
+// }
   
-  /* стили для метки */
-  label {
-    // color: #000;
-    // cursor: default;
-    // font-weight: normal;
-    // line-height: 30px;
-    // // padding: 10px 0;
-    // vertical-align: middle;
-  }
+//   /* стили для метки */
+//   label {
+//     // color: #000;
+//     // cursor: default;
+//     // font-weight: normal;
+//     // line-height: 30px;
+//     // // padding: 10px 0;
+//     // vertical-align: middle;
+//   }
   
-  /* формируем внешний вид чекбокса в псевдоэлементе before */
-  label:before {
-    content: " ";
-    color: #000;
-    display: inline-block;
-    // font: 20px/30px Arial;
-    // margin-right: 15px;
-    // position: relative;
-    // text-align: center;
-    // text-indent: 0px;
-    width: 0.625rem;
-    height: 0.625rem;
-    // background: #FFF;
-    border: 1px solid #8F8F8F;
-    border-image: initial;
-    // vertical-align: middle;
-    border-radius: 0.25rem;
-    background-repeat: no-repeat;
-    background-position: calc(100% - 0.15em) 0.2em;
-    background-size: 1.125em auto;
-    padding: 0.25rem;
-  }
+//   /* формируем внешний вид чекбокса в псевдоэлементе before */
+//   label:before {
+//     content: " ";
+//     color: #000;
+//     display: inline-block;
+//     // font: 20px/30px Arial;
+//     // margin-right: 15px;
+//     // position: relative;
+//     // text-align: center;
+//     // text-indent: 0px;
+//     width: 0.625rem;
+//     height: 0.625rem;
+//     // background: #FFF;
+//     border: 1px solid #8F8F8F;
+//     border-image: initial;
+//     // vertical-align: middle;
+//     border-radius: 0.25rem;
+//     background-repeat: no-repeat;
+//     background-position: calc(100% - 0.15em) 0.2em;
+//     background-size: 1.125em auto;
+//     padding: 0.25rem;
+//   }
   
-  /* вариации внешнего вида в зав-ти от статуса checkbox */
-  /* checked */
-  input:checked + label:before {
-    content: "";
-    background-image: url(../../../assets/check.svg);
-    background-repeat: no-repeat;
-    background-position: calc(100% - 0.05rem) 0.05rem;
-    background-size: 1.125em auto;
-    background-color: #0069B4;
-  }
-  /* disabled */
-  input:disabled + label:before {
-    color: #0069B4;
-  }
+//   /* вариации внешнего вида в зав-ти от статуса checkbox */
+//   /* checked */
+//   input:checked + label:before {
+//     content: "";
+//     background-image: url(../../../assets/check.svg);
+//     background-repeat: no-repeat;
+//     background-position: calc(100% - 0.05rem) 0.05rem;
+//     background-size: 1.125em auto;
+//     background-color: #0069B4;
+//   }
+//   /* disabled */
+//   input:disabled + label:before {
+//     color: #0069B4;
+//   }

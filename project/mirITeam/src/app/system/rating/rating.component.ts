@@ -45,6 +45,16 @@ export class RatingComponent implements OnInit {
       }
     }
   }
+
+  getTotal() {
+    let total = 0;
+    for (var i = 0; i < this.userr.length; i++) {
+        if (this.userr[i].avg) {
+            total += Number(this.userr[i].avg);
+        }
+    }
+    return total;
+  }
   
 
 }

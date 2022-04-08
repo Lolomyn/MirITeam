@@ -10,7 +10,7 @@
                     </div>
                     <div class="icons">
                         <div class="icon1">
-                            <p (click)="delete()" class="delete"></p>
+                            <p (click)="moveCheckedIDs()" class="delete"></p>
                         </div>
                         <div class="icon2">
                             <p (click)="doit('xlsx')" class="toExcel"></p>
@@ -19,17 +19,17 @@
                 </div>
                 <div class="myPortfolio">
                     <table border="1" class="no-double myTable1" id="myTable_list" >
-                        <tr>
-                            <th>
-                                <input type="checkbox" id="checkbox-id">
-                                <label for="checkbox-id"></label>
-                            </th>
-                            <th>Наименование</th>
-                            <th>Статус</th>
-                            <th>Организатор</th>
-                            <th>Степень</th>
-                            <th>Дата получения</th>
-                            <th>
+                        <tr class="th">
+                            <td class="checker">
+                                <input type="checkbox" id="checkbox-id" [checked]="isAllCheckBoxChecked()" (change)="checkAllCheckBox($event)" value="main_checker">
+                                <!-- <label for="checkbox-id"></label> -->
+                            </td>
+                            <td>Наименование</td>
+                            <td>Статус</td>
+                            <td>Организатор</td>
+                            <td>Степень</td>
+                            <td>Дата получения</td>
+                            <td>
                                 <div class="ball">
                                     <span class="ball-title">Балл</span>
                                     <p (click)="helpInfo()" class="help"></p>
@@ -55,17 +55,17 @@
                             <th></th>
                         </tr>
                         <!-- Заменить на БД достижений -->
-                        <tr *ngFor="let User of userr">
-                            <td>
-                                <input type="checkbox" id="checkbox-id">
-                                <label for="checkbox-id"></label>
+                        <tr *ngFor="let User of userr" class="td">
+                            <td class="checker">
+                                <input type="checkbox" id="checkbox-id" (change)="checkIfAllSelected();" [(ngModel)]="User.isChecked">
+                                <!-- <label for="checkbox-id"></label> -->
                             </td>
                             <td>{{User.fcs}}</td>
-                            <td>{{User.fcs}}</td>
-                            <td>{{User.fcs}}</td>
-                            <td>{{User.fcs}}</td>
-                            <td>{{User.fcs}}</td>
-                            <td>5</td>
+                            <td>{{User.age}}</td>
+                            <td>{{User.pnumber}}</td>
+                            <td>{{User.stnumber}}</td>
+                            <td>{{User.groupID}}</td>
+                            <td>{{User.avg}}</td>
                             <td><p class="edit"></p></td>   
                         </tr>
                         

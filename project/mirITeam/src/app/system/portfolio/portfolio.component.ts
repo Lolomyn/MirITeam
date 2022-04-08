@@ -4,6 +4,7 @@ import { AddService } from '../shared/services/add.service';
 import { StudyingService } from '../shared/services/studying.service';
 import * as XLSX from 'xlsx';
 import { AnyForUntypedForms, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UsersService } from '../shared/services/users.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -17,13 +18,17 @@ export class PortfolioComponent implements OnInit {
   user: User;
   userr: User[] = [];
 
+  checkedIDs = [];
+  selectedAll: any;
+
   form: FormGroup;
 
   // edituser: User | undefined;
   
   constructor(
     private addService: AddService,
-    private studyingService: StudyingService
+    private studyingService: StudyingService,
+    private usersService: UsersService
   ) { }
 
   ngOnInit(): void {
@@ -150,4 +155,51 @@ export class PortfolioComponent implements OnInit {
     XLSX.writeFile(wb, fn + (type));
   }
 
+
+  // ЗАМЕНИТЬ НА БД ДОСТИЖЕНИЙ
+  moveCheckedIDs() {
+    var counter = 0;
+    this.userr.forEach((value, index) => {
+      if (value.isChecked) {
+        counter++;
+      }
+    });
+
+    if (counter != 0) {
+      const result = confirm("Вы точно хотите удалить выбранных пользователей?");
+      if (result) {
+        this.checkedIDs = []
+        this.userr.forEach((value, index) => {
+          if (value.isChecked) {
+            // value.id_ = value.id;
+            // this.usersService.createNewUser_a(value)
+            // .subscribe(userr => {
+            //   this.checkedIDs.push(userr);
+            // });
+
+            this.userr = this.userr.filter(u => u !== value);
+            this.usersService.deleteUserById(value.id).subscribe();
+          }
+        });
+        setTimeout(function(){
+          location.reload();
+        }, 2000);
+        alert("Достижение было удалено!");
+      } else alert("Удаление было отменено!");
+    } else alert("Ничего не выделено!");
+  }
+
+  checkIfAllSelected() {
+    this.selectedAll = this.userr.every(function(item2:any) {
+        return this.item2.isChecked == true;
+      })
+  }
+
+  checkAllCheckBox(ev: any) { // Angular 13
+    this.userr.forEach(x => x.isChecked = ev.target.checked)
+  }
+
+  isAllCheckBoxChecked() {
+    return this.userr.every(us => us.isChecked);
+  }
 }

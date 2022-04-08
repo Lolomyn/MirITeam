@@ -16,5 +16,6 @@ export interface User {
      bshifr: string,
      avg: string,
      comment: string,
+     isChecked?: boolean,
      id?: number
 }
