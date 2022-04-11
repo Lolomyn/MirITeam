@@ -18,6 +18,24 @@
                         </div>
                     </div>
                 </div>
+                <div class="check hidden_info">
+                    <p class="info-title">Распределение баллов</p>
+                    <p class="info-subtitle">Муниципальный</p>
+                    <p class="info-text">Победитель  — 3 балла</p>
+                    <p class="info-text">Призёр  — 2 балла</p>
+                    <p class="info-text">Участник  — 1 балла</p>
+                    <p class="info-text">Дипломант — 0,5 балла</p>
+                    <p class="info-subtitle">Областной</p>
+                    <p class="info-text">Победитель  — 4 балла</p>
+                    <p class="info-text">Призёр  — 3 балла</p>
+                    <p class="info-text">Участник — 2 балл</p>
+                    <p class="info-text">Дипломант — 1 балла</p>
+                    <p class="info-subtitle">Всероссийский</p>  
+                    <p class="info-text">Победитель  — 5 баллов</p>
+                    <p class="info-text">Призёр  — 4 балла</p>
+                    <p class="info-text">Участник — 3 балла</p>
+                    <p class="info-text">Дипломант — 2 балла</p>
+                </div>
                 <div class="myPortfolio">
                     <table border="1" class="no-double myTable1" id="myTable_list" >
                         <tr class="th">
@@ -34,40 +52,58 @@
                                 <div class="ball">
                                     <span class="ball-title">Балл</span>
                                     <p (click)="helpInfo()" class="help"></p>
-                                    <div class="check hidden_info">
-                                        <p class="info-title">Распределение баллов</p>
-                                        <p class="info-subtitle">Муниципальный</p>
-                                        <p class="info-text">Победитель  — 3 балла</p>
-                                        <p class="info-text">Призёр  — 2 балла</p>
-                                        <p class="info-text">Участник  — 1 балла</p>
-                                        <p class="info-text">Дипломант — 0,5 балла</p>
-                                        <p class="info-subtitle">Областной</p>
-                                        <p class="info-text">Победитель  — 4 балла</p>
-                                        <p class="info-text">Призёр  — 3 балла</p>
-                                        <p class="info-text">Участник — 2 балл</p>
-                                        <p class="info-text">Дипломант — 1 балла</p>
-                                        <p class="info-subtitle">Всероссийский</p>
-                                        <p class="info-text">Победитель  — 5 баллов</p>
-                                        <p class="info-text">Призёр  — 4 балла</p>
-                                        <p class="info-text">Участник — 3 балла</p>
-                                        <p class="info-text">Дипломант — 2 балла</p>
-                                    </div>
                                 </div>
-                            <th></th>
+                            </td>
+                            <td></td>
                         </tr>
                         <!-- Заменить на БД достижений -->
                         <tr *ngFor="let Achievement of achievement" class="td">
-                            <td class="checker">
-                                <input type="checkbox" id="checkbox-id" (change)="checkIfAllSelected();" [(ngModel)]="Achievement.isChecked">
+                            <td class="checker" *ngIf="Achievement.fcs === user[0].fcs && Achievement!==edit_achievement">
+                                <input *ngIf="Achievement.fcs === user[0].fcs" type="checkbox" id="checkbox-id" (change)="checkIfAllSelected();" [(ngModel)]="Achievement.isChecked">
                                 <!-- <label for="checkbox-id"></label> -->
                             </td>
-                            <td>{{Achievement.name}}</td>
-                            <td>{{Achievement.status}}</td>
-                            <td>{{Achievement.organizator}}</td>
-                            <td>{{Achievement.stepen}}</td>
-                            <td>{{Achievement.date}}</td>
-                            <td>{{Achievement.ball}}</td>
-                            <td><p class="edit"></p></td>   
+                            <!-- <td>{{Achievement.name}}</td> -->
+                            <td *ngIf="Achievement.fcs === user[0].fcs && Achievement!==edit_achievement">
+                                <p  class="popup-img-wrapper">
+                                    {{Achievement.name}}
+                                    <span>
+                                        <img src="{{Achievement.name}}" alt="">
+                                    </span>
+                                </p>
+                            </td>
+                            <td *ngIf="Achievement.fcs === user[0].fcs && Achievement!==edit_achievement">{{Achievement.status}}</td>
+                            <td *ngIf="Achievement.fcs === user[0].fcs && Achievement!==edit_achievement">{{Achievement.organizator}}</td>
+                            <td *ngIf="Achievement.fcs === user[0].fcs && Achievement!==edit_achievement">{{Achievement.stepen}}</td>
+                            <td *ngIf="Achievement.fcs === user[0].fcs && Achievement!==edit_achievement">{{Achievement.date.slice(0,10)}}</td>
+                            <td *ngIf="Achievement.fcs === user[0].fcs && Achievement!==edit_achievement">{{Achievement.ball}}</td>
+                            <td *ngIf="Achievement.fcs === user[0].fcs && Achievement!==edit_achievement"><p (click)="edit(Achievement)" class="edit"></p></td>   
+
+
+
+                            <td class="checker" *ngIf="Achievement.fcs === user[0].fcs && Achievement===edit_achievement">
+                                <input *ngIf="Achievement.fcs === user[0].fcs" type="checkbox" id="checkbox-id" (change)="checkIfAllSelected();" [(ngModel)]="Achievement.isChecked">
+                            </td>
+                            <td *ngIf="Achievement.fcs === user[0].fcs && Achievement===edit_achievement">
+                                <input class="edit_input" [(ngModel)]="Achievement.name" (keyup.enter)="update()">
+                            </td>
+                            <td *ngIf="Achievement.fcs === user[0].fcs && Achievement===edit_achievement">
+                                <input class="edit_input" [(ngModel)]="Achievement.status" (keyup.enter)="update()">
+                            </td>
+                            <td *ngIf="Achievement.fcs === user[0].fcs && Achievement===edit_achievement">
+                                <input class="edit_input" [(ngModel)]="Achievement.organizator" (keyup.enter)="update()">
+                            </td>
+                            <td *ngIf="Achievement.fcs === user[0].fcs && Achievement===edit_achievement">
+                                <input class="edit_input" [(ngModel)]="Achievement.stepen" (keyup.enter)="update()">
+                            </td>
+                            <td *ngIf="Achievement.fcs === user[0].fcs && Achievement===edit_achievement">
+                                <input class="edit_input" [(ngModel)]="Achievement.date" (keyup.enter)="update()">
+                            </td>
+                            <td *ngIf="Achievement.fcs === user[0].fcs && Achievement===edit_achievement">
+                                <input class="edit_input" [(ngModel)]="Achievement.ball" (keyup.enter)="update()">
+                            </td>
+                            <td *ngIf="Achievement.fcs === user[0].fcs && Achievement===edit_achievement">
+                                <p (click)="update()" class="save"></p>
+                            </td>   
                         </tr>
                         
                     </table>

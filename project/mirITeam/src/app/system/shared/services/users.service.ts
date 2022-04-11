@@ -8,6 +8,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {HttpErrorHandler } from 'src/http-error-handler.service';
 // import { MessageService } from 'src/message.service';
 import { environment } from 'src/environments/environment';
+import { Achievement } from '../models/achievement.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -45,11 +46,26 @@ export class UsersService {
       catchError(this.httperrorhandler.handleError<User>('deleteUser'))
     );
   }
+
+  deleteAchievementById(del: Achievement | number): Observable<Achievement> {
+    const id = typeof del === 'number' ? del : del.id;
+    const url = `${environment.apiHost+"/achievements"}/${id}`;
+    return this.http.delete<Achievement>(url).pipe(
+      catchError(this.httperrorhandler.handleError<Achievement>('deleteAchievement'))
+    );
+  }
   
   updateUser(user: User): Observable<any> {
     const url = `${environment.apiHost}/${user.id}`;
     return this.http.put(url, user, httpOptions).pipe(
       catchError(this.httperrorhandler.handleError<any>('updateUser'))
+    );
+  }
+
+  updateAchievement(achievement: Achievement): Observable<any> {
+    const url = `${environment.apiHost+"/achievements"}/${achievement.id}`;
+    return this.http.put(url, achievement, httpOptions).pipe(
+      catchError(this.httperrorhandler.handleError<any>('updateAchievement'))
     );
   }
 

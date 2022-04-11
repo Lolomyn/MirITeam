@@ -134,8 +134,8 @@ tr th input:hover {
     box-sizing: border-box;
     border-radius: 12px;
 
-    margin-top: 2rem;
-    margin-left: 3rem;
+    margin-top: 3rem;
+    margin-left: 70rem;
 
     padding: 1.25rem;
 }
@@ -246,6 +246,17 @@ td {
     cursor: pointer;
 }
 
+.save {
+    background-image: url(../../../assets/save.svg);
+    width: 1rem;
+    height: 1rem;
+}
+
+.save:hover {
+    background-image: url(../../../assets/save-hover.svg);
+    cursor: pointer;
+}
+
 .add {
     padding-left: 1rem;
     width: 25%;
@@ -255,6 +266,14 @@ td {
     // width: 23.75rem;
     border-bottom: 1px solid #8F8F8F;
     border-left: 1px solid #8F8F8F;
+}
+
+.edit_input{
+    border: 1px solid #8F8F8F;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+
+    padding: 0.25rem 0.5rem;
 }
 
 .title {
@@ -501,3 +520,22 @@ button:enabled:hover {
 //   input:disabled + label:before {
 //     color: #0069B4;
 //   }
+
+.popup-img-wrapper span{
+    // border-radius: 5px 5px 5px 5px;
+    display: none;
+    position: absolute;
+    left: 20vw;
+    // background: #f1eaea;
+    // box-shadow: -2px 2px 10px -1px #2f2e2e;  
+    // border-radius: 5px;
+    z-index: 9999;
+  }
+  .popup-img-wrapper span img {
+    width: 20rem;
+    height: 15rem;
+  }
+
+  .popup-img-wrapper:hover span{
+  display: block;
+  }

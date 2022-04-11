@@ -24,6 +24,7 @@ export class PortfolioComponent implements OnInit {
   selectedAll: any;
 
   form: FormGroup;
+  edit_achievement: Achievement | undefined;
 
   // edituser: User | undefined;
   
@@ -44,15 +45,34 @@ export class PortfolioComponent implements OnInit {
     });
     this.user = JSON.parse(window.localStorage.getItem('user'));
   }
+
+  edit(achievement: Achievement) {
+    this.edit_achievement = achievement;
+  }
+
+  update() {
+    this.usersService
+      .updateAchievement(this.edit_achievement)
+      .subscribe(userr => {
+      const ix = userr ? this.userr.findIndex(u => u.id === userr.id) : -1;
+      if (ix > -1) {
+        this.userr[ix] = userr;
+      }
+    });
+    this.edit_achievement = undefined;
+    // window.localStorage.setItem('user', JSON.stringify(this.user));
+  }
   
   getUser(): void {
     this.studyingService.getUser()
       .subscribe(user => (this.userr = user));
   }
+
   getAchievement(): void {
     this.studyingService.getAchievement()
       .subscribe(achievement => (this.achievement = achievement));
   }
+
   onChange(event) {
     this.file = event.target.files[0];
   }
@@ -113,6 +133,7 @@ export class PortfolioComponent implements OnInit {
 
     // alert("Name: " + name + ", status: " + status + ", organizator: " + organizator + ", stepen: " + stepen + ", date: " + date + ", ball: " + ball);
 
+    date = date.slice(0,10);
     this.addService.Achievement({fcs, name, status, organizator, stepen, ball, date, file} as Achievement)
       .subscribe(achievement => {
         this.achievement.push(achievement);
@@ -159,7 +180,7 @@ export class PortfolioComponent implements OnInit {
   // ЗАМЕНИТЬ НА БД ДОСТИЖЕНИЙ
   moveCheckedIDs() {
     var counter = 0;
-    this.userr.forEach((value, index) => {
+    this.achievement.forEach((value, index) => {
       if (value.isChecked) {
         counter++;
       }
@@ -178,7 +199,7 @@ export class PortfolioComponent implements OnInit {
             // });
 
             this.achievement = this.achievement.filter(u => u !== value);
-            this.usersService.deleteUserById(value.id).subscribe();
+            this.usersService.deleteAchievementById(value.id).subscribe();
           }
         });
         setTimeout(function(){
