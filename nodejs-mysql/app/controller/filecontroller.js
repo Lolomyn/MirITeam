@@ -5,7 +5,7 @@ const fs = require('fs');
 const User = db.users;
 const File = db.files;
 const Op = db.Sequelize.Op;
-const filePath = "C:\\Users\\bons1\\Documents\\git\\MirITeam\\project\\mirITeam\\src\\files";
+// const filePath = "C:\\Users\\bons1\\Documents\\git\\MirITeam\\project\\mirITeam\\src\\files";
 
 exports.create = (req, res) => {
     const files = {

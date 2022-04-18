@@ -25,8 +25,6 @@ export class PortfolioComponent implements OnInit {
 
   form: FormGroup;
   edit_achievement: Achievement | undefined;
-
-  // edituser: User | undefined;
   
   constructor(
     private addService: AddService,
@@ -60,7 +58,6 @@ export class PortfolioComponent implements OnInit {
       }
     });
     this.edit_achievement = undefined;
-    // window.localStorage.setItem('user', JSON.stringify(this.user));
   }
   
   getUser(): void {
@@ -131,8 +128,6 @@ export class PortfolioComponent implements OnInit {
       else if (stepen == "Дипломант") ball = 2;
     }
 
-    // alert("Name: " + name + ", status: " + status + ", organizator: " + organizator + ", stepen: " + stepen + ", date: " + date + ", ball: " + ball);
-
     date = date.slice(0,10);
     this.addService.Achievement({fcs, name, status, organizator, stepen, ball, date, file} as Achievement)
       .subscribe(achievement => {
@@ -148,7 +143,6 @@ export class PortfolioComponent implements OnInit {
   }
 
   myFunction() {
-    // alert("worked");
     var input, filter, table, tr, td_comment, i, txtValue;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
@@ -176,8 +170,6 @@ export class PortfolioComponent implements OnInit {
     XLSX.writeFile(wb, fn + (type));
   }
 
-
-  // ЗАМЕНИТЬ НА БД ДОСТИЖЕНИЙ
   moveCheckedIDs() {
     var counter = 0;
     this.achievement.forEach((value, index) => {
@@ -192,12 +184,6 @@ export class PortfolioComponent implements OnInit {
         this.checkedIDs = []
         this.achievement.forEach((value, index) => {
           if (value.isChecked) {
-            // value.id_ = value.id;
-            // this.usersService.createNewUser_a(value)
-            // .subscribe(userr => {
-            //   this.checkedIDs.push(userr);
-            // });
-
             this.achievement = this.achievement.filter(u => u !== value);
             this.usersService.deleteAchievementById(value.id).subscribe();
           }

@@ -4,12 +4,12 @@ const Op = db.Sequelize.Op;
 
 // Create and Save a new Tutorial
 exports.create = (req, res) => {
-    if (!req.body.fcs) {
-        res.status(400).send({
-          message: "Content can not be empty!"
-        });
-        return;
-        }
+    // if (!req.body.fcs) {
+    //     res.status(400).send({
+    //       message: "Content can not be empty!"
+    //     });
+    //     return;
+    //     }
         const achievements = {
             id: req.body.id,
             fcs: req.body.fcs,
