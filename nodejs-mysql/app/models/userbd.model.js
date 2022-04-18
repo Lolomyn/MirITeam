@@ -2,7 +2,8 @@ module.exports = (sequelize, Sequelize) => {
     const User = sequelize.define("user", {
         id: {
             type: Sequelize.INTEGER,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true,
         },
         password: {
             type: Sequelize.STRING
@@ -38,10 +39,10 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.INTEGER
         },
         inn: {
-            type: Sequelize.INTEGER
+            type: Sequelize.STRING
         },
         snils: {
-            type: Sequelize.INTEGER
+            type: Sequelize.STRING
         },
         bshifr: {
             type: Sequelize.STRING

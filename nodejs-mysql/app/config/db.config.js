@@ -1,8 +1,8 @@
 module.exports = {
-    HOST: "bons133t.beget.tech",
-    USER: "bons133t_mirteam",
-    PASSWORD: "&yJFTN6l",
-    DB: "bons133t_mirteam",
+    HOST: "localhost",
+    USER: "root",
+    PASSWORD: "12345678",
+    DB: "basa_dp",
     dialect: "mysql",
     // filePath: "C:\\Users\\bons1\\Documents\\git\\MirITeam\\project\\mirITeam\\src\\files",
     pool: {
